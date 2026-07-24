@@ -13,15 +13,20 @@ public class Jugador {
     }
 
     public void sumarPareja() {
-      
+       puntaje += 100;
+    parejasEncontradas++;
     }
 
     public void sumarIntento() {
+         intentos++;
+    puntaje -= 20; 
         
     }
 
     public void reiniciar() {
-        
+          puntaje = 0;
+    intentos = 0;
+    parejasEncontradas = 0;
     }
 
     public int getPuntaje() {
