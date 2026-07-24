@@ -1,13 +1,38 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package modelo;
 
-/**
- *
- * @author norki
- */
 public class Jugador {
     
+    private int puntaje;
+    private int intentos;
+    private int parejasEncontradas;
+
+    public Jugador() {
+        this.puntaje = 0;
+        this.intentos = 0;
+        this.parejasEncontradas = 0;
+    }
+
+    public void sumarPareja() {
+      
+    }
+
+    public void sumarIntento() {
+        
+    }
+
+    public void reiniciar() {
+        
+    }
+
+    public int getPuntaje() {
+        return puntaje;
+    }
+
+    public int getIntentos() {
+        return intentos;
+    }
+
+    public int getParejasEncontradas() {
+        return parejasEncontradas;
+    }
 }
