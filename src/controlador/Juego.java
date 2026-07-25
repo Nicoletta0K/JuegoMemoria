@@ -66,8 +66,7 @@ public class Juego {
             segundaCarta = null;
             esperandoComparacion = false;
         }
-        // si no coincide, la GUI se encarga de ocultar las cartas
-        // después de 2 segundos y luego llamar a limpiarSeleccion()
+       
 
         return coincide;
     }
