@@ -65,8 +65,11 @@ public class Juego {
             primeraCarta = null;
             segundaCarta = null;
             esperandoComparacion = false;
+
+            if (tablero.juegoFinalizado()) {
+                finalizarJuego();
+            }
         }
-       
 
         return coincide;
     }
@@ -107,5 +110,9 @@ public class Juego {
 
     public Cronometro getCronometro() {
         return cronometro;
+    }
+
+    public boolean isEsperandoComparacion() {
+        return esperandoComparacion;
     }
 }
