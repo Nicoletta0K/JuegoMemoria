@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package vista;
+import modelo.Nivel;
+
 
 /**
  *
@@ -28,22 +30,94 @@ public class FrmSeleccionNivel extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        lblSeleccionNivel = new javax.swing.JLabel();
+        btnPrincipiante = new javax.swing.JButton();
+        btnIntermedio = new javax.swing.JButton();
+        btnAvanzado = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Juego Memoria");
+
+        lblSeleccionNivel.setBackground(new java.awt.Color(255, 255, 255));
+        lblSeleccionNivel.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        lblSeleccionNivel.setText("               ¿Qué nivel quieres jugar?");
+        lblSeleccionNivel.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+
+        btnPrincipiante.setBackground(new java.awt.Color(204, 255, 204));
+        btnPrincipiante.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        btnPrincipiante.setText("Principiante");
+        btnPrincipiante.addActionListener(this::btnPrincipianteActionPerformed);
+
+        btnIntermedio.setBackground(new java.awt.Color(255, 255, 204));
+        btnIntermedio.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        btnIntermedio.setText("Intermedio");
+        btnIntermedio.addActionListener(this::btnIntermedioActionPerformed);
+
+        btnAvanzado.setBackground(new java.awt.Color(255, 153, 153));
+        btnAvanzado.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        btnAvanzado.setText("Avanzado");
+        btnAvanzado.addActionListener(this::btnAvanzadoActionPerformed);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(90, 90, 90)
+                        .addComponent(btnPrincipiante, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(42, 42, 42)
+                        .addComponent(btnIntermedio, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(36, 36, 36)
+                        .addComponent(btnAvanzado, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(170, 170, 170)
+                        .addComponent(lblSeleccionNivel, javax.swing.GroupLayout.PREFERRED_SIZE, 446, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(128, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addComponent(lblSeleccionNivel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(113, 113, 113)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnPrincipiante, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnIntermedio, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAvanzado, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(221, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnPrincipianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrincipianteActionPerformed
+       this.setVisible(false);
+    new FrmMemoria(Nivel.PRINCIPIANTE).setVisible(true);
+    }//GEN-LAST:event_btnPrincipianteActionPerformed
+
+    private void btnAvanzadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvanzadoActionPerformed
+this.setVisible(false);
+    new FrmMemoria(Nivel.AVANZADO).setVisible(true);
+    }//GEN-LAST:event_btnAvanzadoActionPerformed
+
+    private void btnIntermedioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIntermedioActionPerformed
+        this.setVisible(false);
+    new FrmMemoria(Nivel.INTERMEDIO).setVisible(true);
+    }//GEN-LAST:event_btnIntermedioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -71,5 +145,10 @@ public class FrmSeleccionNivel extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAvanzado;
+    private javax.swing.JButton btnIntermedio;
+    private javax.swing.JButton btnPrincipiante;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblSeleccionNivel;
     // End of variables declaration//GEN-END:variables
 }
