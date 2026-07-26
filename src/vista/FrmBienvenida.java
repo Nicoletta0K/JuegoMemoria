@@ -67,8 +67,10 @@ public class FrmBienvenida extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnJugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJugarActionPerformed
-        new FrmSeleccionNivel().setVisible(true);
-        this.setVisible(false);
+       FrmSeleccionNivel seleccion = new FrmSeleccionNivel();
+    seleccion.setLocationRelativeTo(null);
+    seleccion.setVisible(true);
+    this.dispose();
     }//GEN-LAST:event_btnJugarActionPerformed
 
     /**

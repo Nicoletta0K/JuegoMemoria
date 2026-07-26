@@ -105,18 +105,24 @@ public class FrmSeleccionNivel extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnPrincipianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrincipianteActionPerformed
-       this.setVisible(false);
-    new FrmJuegoMemoria(Nivel.PRINCIPIANTE).setVisible(true);
+       FrmJuegoMemoria juego = new FrmJuegoMemoria(Nivel.PRINCIPIANTE);
+    juego.setLocationRelativeTo(null);
+    juego.setVisible(true);
+    this.dispose();
     }//GEN-LAST:event_btnPrincipianteActionPerformed
 
     private void btnAvanzadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvanzadoActionPerformed
-this.setVisible(false);
-    new FrmJuegoMemoria(Nivel.AVANZADO).setVisible(true);
+FrmJuegoMemoria juego = new FrmJuegoMemoria(Nivel.INTERMEDIO);
+    juego.setLocationRelativeTo(null);
+    juego.setVisible(true);
+    this.dispose();
     }//GEN-LAST:event_btnAvanzadoActionPerformed
 
     private void btnIntermedioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIntermedioActionPerformed
-        this.setVisible(false);
-    new FrmJuegoMemoria(Nivel.INTERMEDIO).setVisible(true);
+        FrmJuegoMemoria juego = new FrmJuegoMemoria(Nivel.AVANZADO);
+    juego.setLocationRelativeTo(null);
+    juego.setVisible(true);
+    this.dispose();
     }//GEN-LAST:event_btnIntermedioActionPerformed
 
     /**

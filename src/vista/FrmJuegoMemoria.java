@@ -27,6 +27,7 @@ public class FrmJuegoMemoria extends javax.swing.JFrame {
     public FrmJuegoMemoria(Nivel nivel) {
     initComponents();
     this.nivelActual = nivel;
+    lblNivelActual.setText("Nivel: " + nivel.name());
     juego = new Juego(nivel);
     juego.iniciarPartida();
     generarTablero();
@@ -183,7 +184,17 @@ public class FrmJuegoMemoria extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnCambiarNivelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiarNivelActionPerformed
-        // TODO add your handling code here:
+      if (timerCronometro != null) {
+        timerCronometro.stop();
+    }
+    
+    
+    FrmSeleccionNivel seleccion = new FrmSeleccionNivel();
+    seleccion.setLocationRelativeTo(null); 
+    seleccion.setVisible(true);
+    
+   
+    this.dispose();
     }//GEN-LAST:event_btnCambiarNivelActionPerformed
 
     /**
