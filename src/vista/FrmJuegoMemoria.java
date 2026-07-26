@@ -11,8 +11,7 @@ import javax.swing.Timer;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author María J
+ 
  */
 public class FrmJuegoMemoria extends javax.swing.JFrame {
     
@@ -22,10 +21,18 @@ public class FrmJuegoMemoria extends javax.swing.JFrame {
      * Creates new form FrmJuegoMemoria
      */
     private Nivel nivelActual;
+    private Juego juego;
+    private JButton[][] botones;
+    private Timer timerCronometro;
     public FrmJuegoMemoria(Nivel nivel) {
-        initComponents();
-         this.nivelActual = nivel;
-    }
+    initComponents();
+    this.nivelActual = nivel;
+    juego = new Juego(nivel);
+    juego.iniciarPartida();
+    generarTablero();
+    actualizarEtiquetas();
+    iniciarTimerCronometro();
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -45,73 +52,10 @@ public class FrmJuegoMemoria extends javax.swing.JFrame {
         btnCambiarNivel = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
         PanelTablero = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
-        jButton13 = new javax.swing.JButton();
-        jButton14 = new javax.swing.JButton();
-        jButton15 = new javax.swing.JButton();
-        jButton16 = new javax.swing.JButton();
-        jButton17 = new javax.swing.JButton();
-        jButton18 = new javax.swing.JButton();
-        jButton19 = new javax.swing.JButton();
-        jButton20 = new javax.swing.JButton();
-        jButton21 = new javax.swing.JButton();
-        jButton22 = new javax.swing.JButton();
-        jButton23 = new javax.swing.JButton();
-        jButton24 = new javax.swing.JButton();
-        jButton25 = new javax.swing.JButton();
-        jButton26 = new javax.swing.JButton();
-        jButton27 = new javax.swing.JButton();
-        jButton28 = new javax.swing.JButton();
-        jButton29 = new javax.swing.JButton();
-        jButton30 = new javax.swing.JButton();
-        jButton31 = new javax.swing.JButton();
-        jButton32 = new javax.swing.JButton();
-        jButton33 = new javax.swing.JButton();
-        jButton34 = new javax.swing.JButton();
-        jButton35 = new javax.swing.JButton();
-        jButton36 = new javax.swing.JButton();
-        jButton37 = new javax.swing.JButton();
-        jButton38 = new javax.swing.JButton();
-        jButton39 = new javax.swing.JButton();
-        jButton40 = new javax.swing.JButton();
-        jButton41 = new javax.swing.JButton();
-        jButton42 = new javax.swing.JButton();
-        jButton43 = new javax.swing.JButton();
-        jButton44 = new javax.swing.JButton();
-        jButton45 = new javax.swing.JButton();
-        jButton46 = new javax.swing.JButton();
-        jButton47 = new javax.swing.JButton();
-        jButton48 = new javax.swing.JButton();
-        jButton49 = new javax.swing.JButton();
-        jButton50 = new javax.swing.JButton();
-        jButton51 = new javax.swing.JButton();
-        jButton52 = new javax.swing.JButton();
-        jButton53 = new javax.swing.JButton();
-        jButton54 = new javax.swing.JButton();
-        jButton55 = new javax.swing.JButton();
-        jButton56 = new javax.swing.JButton();
-        jButton57 = new javax.swing.JButton();
-        jButton58 = new javax.swing.JButton();
-        jButton59 = new javax.swing.JButton();
-        jButton60 = new javax.swing.JButton();
-        jButton61 = new javax.swing.JButton();
-        jButton62 = new javax.swing.JButton();
-        jButton63 = new javax.swing.JButton();
-        jButton64 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Juego Memoria");
+        setResizable(false);
 
         lblPuntaje.setBackground(new java.awt.Color(204, 204, 255));
         lblPuntaje.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -164,326 +108,18 @@ public class FrmJuegoMemoria extends javax.swing.JFrame {
         btnSalir.addActionListener(this::btnSalirActionPerformed);
 
         PanelTablero.setBackground(new java.awt.Color(255, 204, 204));
+        PanelTablero.setPreferredSize(new java.awt.Dimension(360, 320));
         PanelTablero.setLayout(new java.awt.GridLayout(8, 8));
-
-        jButton1.setText("jButton1");
-
-        jButton2.setText("jButton1");
-
-        jButton3.setText("jButton1");
-
-        jButton4.setText("jButton1");
-
-        jButton5.setText("jButton1");
-
-        jButton6.setText("jButton1");
-
-        jButton7.setText("jButton1");
-
-        jButton8.setText("jButton1");
-
-        jButton9.setText("jButton1");
-
-        jButton10.setText("jButton1");
-
-        jButton11.setText("jButton1");
-
-        jButton12.setText("jButton1");
-
-        jButton13.setText("jButton1");
-
-        jButton14.setText("jButton1");
-
-        jButton15.setText("jButton1");
-
-        jButton16.setText("jButton1");
-
-        jButton17.setText("jButton1");
-        jButton17.addActionListener(this::jButton17ActionPerformed);
-
-        jButton18.setText("jButton1");
-        jButton18.addActionListener(this::jButton18ActionPerformed);
-
-        jButton19.setText("jButton1");
-
-        jButton20.setText("jButton1");
-        jButton20.addActionListener(this::jButton20ActionPerformed);
-
-        jButton21.setText("jButton1");
-        jButton21.addActionListener(this::jButton21ActionPerformed);
-
-        jButton22.setText("jButton1");
-        jButton22.addActionListener(this::jButton22ActionPerformed);
-
-        jButton23.setText("jButton1");
-        jButton23.addActionListener(this::jButton23ActionPerformed);
-
-        jButton24.setText("jButton1");
-        jButton24.addActionListener(this::jButton24ActionPerformed);
-
-        jButton25.setText("jButton1");
-        jButton25.addActionListener(this::jButton25ActionPerformed);
-
-        jButton26.setText("jButton1");
-        jButton26.addActionListener(this::jButton26ActionPerformed);
-
-        jButton27.setText("jButton1");
-        jButton27.addActionListener(this::jButton27ActionPerformed);
-
-        jButton28.setText("jButton1");
-        jButton28.addActionListener(this::jButton28ActionPerformed);
-
-        jButton29.setText("jButton1");
-        jButton29.addActionListener(this::jButton29ActionPerformed);
-
-        jButton30.setText("jButton1");
-        jButton30.addActionListener(this::jButton30ActionPerformed);
-
-        jButton31.setText("jButton1");
-        jButton31.addActionListener(this::jButton31ActionPerformed);
-
-        jButton32.setText("jButton1");
-        jButton32.addActionListener(this::jButton32ActionPerformed);
-
-        jButton33.setText("jButton1");
-        jButton33.addActionListener(this::jButton33ActionPerformed);
-
-        jButton34.setText("jButton1");
-        jButton34.addActionListener(this::jButton34ActionPerformed);
-
-        jButton35.setText("jButton1");
-        jButton35.addActionListener(this::jButton35ActionPerformed);
-
-        jButton36.setText("jButton1");
-        jButton36.addActionListener(this::jButton36ActionPerformed);
-
-        jButton37.setText("jButton1");
-        jButton37.addActionListener(this::jButton37ActionPerformed);
-
-        jButton38.setText("jButton1");
-        jButton38.addActionListener(this::jButton38ActionPerformed);
-
-        jButton39.setText("jButton1");
-        jButton39.addActionListener(this::jButton39ActionPerformed);
-
-        jButton40.setText("jButton1");
-        jButton40.addActionListener(this::jButton40ActionPerformed);
-
-        jButton41.setText("jButton1");
-        jButton41.addActionListener(this::jButton41ActionPerformed);
-
-        jButton42.setText("jButton1");
-        jButton42.addActionListener(this::jButton42ActionPerformed);
-
-        jButton43.setText("jButton1");
-        jButton43.addActionListener(this::jButton43ActionPerformed);
-
-        jButton44.setText("jButton1");
-        jButton44.addActionListener(this::jButton44ActionPerformed);
-
-        jButton45.setText("jButton1");
-        jButton45.addActionListener(this::jButton45ActionPerformed);
-
-        jButton46.setText("jButton1");
-        jButton46.addActionListener(this::jButton46ActionPerformed);
-
-        jButton47.setText("jButton1");
-        jButton47.addActionListener(this::jButton47ActionPerformed);
-
-        jButton48.setText("jButton1");
-        jButton48.addActionListener(this::jButton48ActionPerformed);
-
-        jButton49.setText("jButton1");
-        jButton49.addActionListener(this::jButton49ActionPerformed);
-
-        jButton50.setText("jButton1");
-        jButton50.addActionListener(this::jButton50ActionPerformed);
-
-        jButton51.setText("jButton1");
-        jButton51.addActionListener(this::jButton51ActionPerformed);
-
-        jButton52.setText("jButton1");
-        jButton52.addActionListener(this::jButton52ActionPerformed);
-
-        jButton53.setText("jButton1");
-        jButton53.addActionListener(this::jButton53ActionPerformed);
-
-        jButton54.setText("jButton1");
-        jButton54.addActionListener(this::jButton54ActionPerformed);
-
-        jButton55.setText("jButton1");
-        jButton55.addActionListener(this::jButton55ActionPerformed);
-
-        jButton56.setText("jButton1");
-        jButton56.addActionListener(this::jButton56ActionPerformed);
-
-        jButton57.setText("jButton1");
-        jButton57.addActionListener(this::jButton57ActionPerformed);
-
-        jButton58.setText("jButton1");
-        jButton58.addActionListener(this::jButton58ActionPerformed);
-
-        jButton59.setText("jButton1");
-        jButton59.addActionListener(this::jButton59ActionPerformed);
-
-        jButton60.setText("jButton1");
-        jButton60.addActionListener(this::jButton60ActionPerformed);
-
-        jButton61.setText("jButton1");
-        jButton61.addActionListener(this::jButton61ActionPerformed);
-
-        jButton62.setText("jButton1");
-        jButton62.addActionListener(this::jButton62ActionPerformed);
-
-        jButton63.setText("jButton1");
-        jButton63.addActionListener(this::jButton63ActionPerformed);
-
-        jButton64.setText("jButton1");
-        jButton64.addActionListener(this::jButton64ActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jButton9, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton18, javax.swing.GroupLayout.Alignment.LEADING))
-                                .addGap(39, 39, 39)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jButton19)
-                                        .addGap(24, 24, 24)
-                                        .addComponent(jButton20)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jButton21))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jButton37)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(jButton38))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jButton46)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(jButton47))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jButton55)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(jButton56))
-                                            .addComponent(jButton64)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jButton28)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(jButton29)))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jButton30, javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jButton39, javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jButton48, javax.swing.GroupLayout.Alignment.TRAILING)))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jButton10)
-                                            .addComponent(jButton1))
-                                        .addGap(27, 27, 27)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jButton2)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jButton11)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(jButton12)))))
-                                .addGap(2, 2, 2))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(btnCambiarNivel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton3)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(10, 10, 10)
-                                        .addComponent(jButton13)
-                                        .addGap(26, 26, 26)
-                                        .addComponent(jButton14))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(13, 13, 13)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(jButton59)
-                                                .addGroup(layout.createSequentialGroup()
-                                                    .addComponent(jButton49)
-                                                    .addGap(18, 18, 18)
-                                                    .addComponent(jButton50)))
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                .addGroup(layout.createSequentialGroup()
-                                                    .addComponent(jButton31)
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                    .addComponent(jButton32))
-                                                .addGroup(layout.createSequentialGroup()
-                                                    .addComponent(jButton40)
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                    .addComponent(jButton41))
-                                                .addGroup(layout.createSequentialGroup()
-                                                    .addComponent(jButton22)
-                                                    .addGap(23, 23, 23)
-                                                    .addComponent(jButton23))))))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jButton24)
-                                            .addComponent(jButton15))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jButton25)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jButton43)
-                                                    .addComponent(jButton16))
-                                                .addGap(33, 33, 33)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jButton17)
-                                                    .addComponent(jButton35)
-                                                    .addComponent(jButton26)
-                                                    .addComponent(jButton53)
-                                                    .addComponent(jButton62)
-                                                    .addComponent(jButton8)
-                                                    .addComponent(jButton44)))))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jButton33)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jButton34))
-                                    .addComponent(jButton42)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jButton51)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jButton52))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jButton60)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jButton61))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(21, 21, 21)
-                                .addComponent(jButton4)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton5)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton7)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(48, 48, 48))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lblNivelActual, javax.swing.GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
+                        .addContainerGap()
+                        .addComponent(lblNivelActual, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblPuntaje, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -494,26 +130,15 @@ public class FrmJuegoMemoria extends javax.swing.JFrame {
                         .addComponent(lblTiempo, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnReiniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(110, 110, 110))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton27)
-                            .addComponent(jButton36)
-                            .addComponent(jButton45)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton54)
-                                .addGap(231, 231, 231)
-                                .addComponent(jButton57)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton58)))
-                        .addGap(0, 0, Short.MAX_VALUE))))
-            .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(PanelTablero, javax.swing.GroupLayout.PREFERRED_SIZE, 479, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(77, 77, 77)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(PanelTablero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButton63)))
-                .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(btnCambiarNivel)
+                    .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -525,308 +150,41 @@ public class FrmJuegoMemoria extends javax.swing.JFrame {
                     .addComponent(lblIntentos, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblParejas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblTiempo)
-                    .addComponent(btnReiniciar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4)
-                    .addComponent(jButton5)
-                    .addComponent(jButton6)
-                    .addComponent(jButton7)
-                    .addComponent(jButton8)
-                    .addComponent(btnCambiarNivel)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2))
+                    .addComponent(btnReiniciar)
+                    .addComponent(btnCambiarNivel))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addComponent(jButton9))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton10)
-                            .addComponent(jButton11)
-                            .addComponent(jButton12)
-                            .addComponent(jButton13)
-                            .addComponent(jButton14)
-                            .addComponent(jButton15)
-                            .addComponent(jButton16)
-                            .addComponent(jButton17))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton18)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton19)
-                        .addComponent(jButton20)
-                        .addComponent(jButton21)
-                        .addComponent(jButton22)
-                        .addComponent(jButton23)
-                        .addComponent(jButton24)
-                        .addComponent(jButton25))
-                    .addComponent(jButton26))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton27)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton36)
-                            .addComponent(jButton37)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton28)
-                            .addComponent(jButton29)
-                            .addComponent(jButton30)
-                            .addComponent(jButton31)
-                            .addComponent(jButton32)
-                            .addComponent(jButton33)
-                            .addComponent(jButton34)
-                            .addComponent(jButton35))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton39)
-                            .addComponent(jButton40)
-                            .addComponent(jButton41)
-                            .addComponent(jButton42)
-                            .addComponent(jButton43)
-                            .addComponent(jButton44)
-                            .addComponent(jButton38))))
-                .addGap(12, 12, 12)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton45)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton46)
-                        .addComponent(jButton47)
-                        .addComponent(jButton48)
-                        .addComponent(jButton49)
-                        .addComponent(jButton50)
-                        .addComponent(jButton51)
-                        .addComponent(jButton52)
-                        .addComponent(jButton53)))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton54)
-                    .addComponent(jButton55)
-                    .addComponent(jButton56)
-                    .addComponent(jButton57)
-                    .addComponent(jButton58)
-                    .addComponent(jButton59)
-                    .addComponent(jButton60)
-                    .addComponent(jButton61)
-                    .addComponent(jButton62))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton63)
-                    .addComponent(jButton64))
-                .addGap(25, 25, 25)
-                .addComponent(PanelTablero, javax.swing.GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE)
-                .addGap(46, 46, 46)
-                .addComponent(btnSalir)
-                .addGap(31, 31, 31))
+                        .addGap(308, 308, 308)
+                        .addComponent(btnSalir)
+                        .addGap(14, 14, 14))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(PanelTablero, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(22, 22, 22))))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnReiniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReiniciarActionPerformed
-        // TODO add your handling code here:
+        juego.reiniciarPartida();
+    generarTablero();
+    actualizarEtiquetas();
+    iniciarTimerCronometro();
     }//GEN-LAST:event_btnReiniciarActionPerformed
 
-    private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton20ActionPerformed
-
-    private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton21ActionPerformed
-
-    private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton22ActionPerformed
-
-    private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton23ActionPerformed
-
-    private void jButton24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton24ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton24ActionPerformed
-
-    private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton25ActionPerformed
-
-    private void jButton26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton26ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton26ActionPerformed
-
-    private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton27ActionPerformed
-
-    private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton28ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton28ActionPerformed
-
-    private void jButton29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton29ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton29ActionPerformed
-
-    private void jButton30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton30ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton30ActionPerformed
-
-    private void jButton31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton31ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton31ActionPerformed
-
-    private void jButton32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton32ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton32ActionPerformed
-
-    private void jButton33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton33ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton33ActionPerformed
-
-    private void jButton34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton34ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton34ActionPerformed
-
-    private void jButton35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton35ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton35ActionPerformed
-
-    private void jButton36ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton36ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton36ActionPerformed
-
-    private void jButton37ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton37ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton37ActionPerformed
-
-    private void jButton38ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton38ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton38ActionPerformed
-
-    private void jButton39ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton39ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton39ActionPerformed
-
-    private void jButton40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton40ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton40ActionPerformed
-
-    private void jButton41ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton41ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton41ActionPerformed
-
-    private void jButton42ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton42ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton42ActionPerformed
-
-    private void jButton43ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton43ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton43ActionPerformed
-
-    private void jButton44ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton44ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton44ActionPerformed
-
-    private void jButton45ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton45ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton45ActionPerformed
-
-    private void jButton46ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton46ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton46ActionPerformed
-
-    private void jButton47ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton47ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton47ActionPerformed
-
-    private void jButton48ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton48ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton48ActionPerformed
-
-    private void jButton49ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton49ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton49ActionPerformed
-
-    private void jButton50ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton50ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton50ActionPerformed
-
-    private void jButton51ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton51ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton51ActionPerformed
-
-    private void jButton52ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton52ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton52ActionPerformed
-
-    private void jButton53ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton53ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton53ActionPerformed
-
-    private void jButton54ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton54ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton54ActionPerformed
-
-    private void jButton55ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton55ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton55ActionPerformed
-
-    private void jButton56ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton56ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton56ActionPerformed
-
-    private void jButton57ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton57ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton57ActionPerformed
-
-    private void jButton58ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton58ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton58ActionPerformed
-
-    private void jButton59ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton59ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton59ActionPerformed
-
-    private void jButton60ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton60ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton60ActionPerformed
-
-    private void jButton61ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton61ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton61ActionPerformed
-
-    private void jButton62ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton62ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton62ActionPerformed
-
-    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton17ActionPerformed
-
-    private void jButton63ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton63ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton63ActionPerformed
-
-    private void jButton64ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton64ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton64ActionPerformed
-
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        // TODO add your handling code here:
+        int respuesta = JOptionPane.showConfirmDialog(this,
+        "Deseas salir?", "Confirmar salida",
+        JOptionPane.YES_NO_OPTION);
+    if (respuesta == JOptionPane.YES_OPTION) {
+        System.exit(0);
+    }
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnCambiarNivelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiarNivelActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCambiarNivelActionPerformed
-
-    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton18ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -858,74 +216,102 @@ public class FrmJuegoMemoria extends javax.swing.JFrame {
     private javax.swing.JButton btnCambiarNivel;
     private javax.swing.JButton btnReiniciar;
     private javax.swing.JButton btnSalir;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton14;
-    private javax.swing.JButton jButton15;
-    private javax.swing.JButton jButton16;
-    private javax.swing.JButton jButton17;
-    private javax.swing.JButton jButton18;
-    private javax.swing.JButton jButton19;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton20;
-    private javax.swing.JButton jButton21;
-    private javax.swing.JButton jButton22;
-    private javax.swing.JButton jButton23;
-    private javax.swing.JButton jButton24;
-    private javax.swing.JButton jButton25;
-    private javax.swing.JButton jButton26;
-    private javax.swing.JButton jButton27;
-    private javax.swing.JButton jButton28;
-    private javax.swing.JButton jButton29;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton30;
-    private javax.swing.JButton jButton31;
-    private javax.swing.JButton jButton32;
-    private javax.swing.JButton jButton33;
-    private javax.swing.JButton jButton34;
-    private javax.swing.JButton jButton35;
-    private javax.swing.JButton jButton36;
-    private javax.swing.JButton jButton37;
-    private javax.swing.JButton jButton38;
-    private javax.swing.JButton jButton39;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton40;
-    private javax.swing.JButton jButton41;
-    private javax.swing.JButton jButton42;
-    private javax.swing.JButton jButton43;
-    private javax.swing.JButton jButton44;
-    private javax.swing.JButton jButton45;
-    private javax.swing.JButton jButton46;
-    private javax.swing.JButton jButton47;
-    private javax.swing.JButton jButton48;
-    private javax.swing.JButton jButton49;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton50;
-    private javax.swing.JButton jButton51;
-    private javax.swing.JButton jButton52;
-    private javax.swing.JButton jButton53;
-    private javax.swing.JButton jButton54;
-    private javax.swing.JButton jButton55;
-    private javax.swing.JButton jButton56;
-    private javax.swing.JButton jButton57;
-    private javax.swing.JButton jButton58;
-    private javax.swing.JButton jButton59;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton60;
-    private javax.swing.JButton jButton61;
-    private javax.swing.JButton jButton62;
-    private javax.swing.JButton jButton63;
-    private javax.swing.JButton jButton64;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JLabel lblIntentos;
     private javax.swing.JLabel lblNivelActual;
     private javax.swing.JLabel lblParejas;
     private javax.swing.JLabel lblPuntaje;
     private javax.swing.JLabel lblTiempo;
     // End of variables declaration//GEN-END:variables
+
+private void generarTablero() {
+    int filas = juego.getTablero().getFilas();
+    int columnas = juego.getTablero().getColumnas();
+    PanelTablero.removeAll();
+    PanelTablero.setLayout(new java.awt.GridLayout(filas, columnas, 5, 5));
+    botones = new JButton[filas][columnas];
+    for (int f = 0; f < filas; f++) {
+        for (int c = 0; c < columnas; c++) {
+            JButton boton = new JButton("?");
+            boton.setPreferredSize(new java.awt.Dimension(70, 70));
+            boton.setFont(new java.awt.Font("Tahoma", java.awt.Font.BOLD, 14));
+            final int fila = f;
+            final int columna = c;
+            boton.addActionListener(e -> {
+                juego.seleccionarCarta(fila, columna);
+                actualizarTablero();
+                actualizarEtiquetas();
+                if (juego.isEsperandoComparacion()) {
+                    Timer timer = new Timer(2000, ev -> {
+                        juego.limpiarSeleccion();
+                        actualizarTablero();
+                    });
+                    timer.setRepeats(false);
+                    timer.start();
+                }
+            });
+            botones[f][c] = boton;
+            PanelTablero.add(boton);
+        }
+    }
+
+    PanelTablero.revalidate();
+    PanelTablero.repaint();
+    pack();
+    setLocationRelativeTo(null);
 }
+private void actualizarTablero() {
+    int filas = juego.getTablero().getFilas();
+    int columnas = juego.getTablero().getColumnas();
+
+    for (int f = 0; f < filas; f++) {
+        for (int c = 0; c < columnas; c++) {
+            Carta carta = juego.getTablero().obtenerCarta(f, c);
+            JButton boton = botones[f][c];
+
+            if (carta.isEncontrada() || carta.isVisible()) {
+                boton.setText(carta.getImagen());
+                boton.setEnabled(!carta.isEncontrada());
+            } else {
+                boton.setText("?");
+                boton.setEnabled(true);
+            }
+        }
+    }
+}
+
+private void actualizarEtiquetas() {
+    lblPuntaje.setText("Puntaje: " + juego.getJugador().getPuntaje());
+    lblIntentos.setText("Intentos: " + juego.getJugador().getIntentos());
+    lblParejas.setText("Parejas: " + juego.getJugador().getParejasEncontradas());
+    lblTiempo.setText("Tiempo: " + juego.getCronometro().obtenerTiempoFormateado());
+}
+
+private void iniciarTimerCronometro() {
+    if (timerCronometro != null) {
+        timerCronometro.stop();
+    }
+
+    timerCronometro = new Timer(1000, e -> {
+        juego.getCronometro().incrementar();
+        lblTiempo.setText("Tiempo: " + juego.getCronometro().obtenerTiempoFormateado());
+
+        if (juego.juegoTerminado()) {
+            timerCronometro.stop();
+            mostrarFinDeJuego();
+        }
+    });
+    timerCronometro.start();
+}
+
+private void mostrarFinDeJuego() {
+    String mensaje = "¡Felicidades, completaste el juego!\n\n"
+            + "Puntaje final: " + juego.getJugador().getPuntaje() + "\n"
+            + "Intentos: " + juego.getJugador().getIntentos() + "\n"
+            + "Tiempo: " + juego.getCronometro().obtenerTiempoFormateado();
+
+    JOptionPane.showMessageDialog(this, mensaje, "Juego terminado",
+            JOptionPane.INFORMATION_MESSAGE);
+}
+}
+
+
