@@ -13,24 +13,31 @@ import javax.swing.JOptionPane;
 /**
  
  */
-public class FrmJuegoMemoria extends javax.swing.JFrame {
+public class FrmPrincipiante extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrmJuegoMemoria.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrmPrincipiante.class.getName());
 
     /**
-     * Creates new form FrmJuegoMemoria
+     * Creates new form FrmPrincipiante
      */
     private Nivel nivelActual;
     private Juego juego;
     private JButton[][] botones;
     private Timer timerCronometro;
-    public FrmJuegoMemoria(Nivel nivel) {
+    public FrmPrincipiante(Nivel nivel) {
     initComponents();
     this.nivelActual = nivel;
     lblNivelActual.setText("Nivel: " + nivel.name());
+    
+    // 1. Vinculamos los botones creados en la GUI a la matriz bidimensional
+    inicializarMatrizBotones();
+    
+    // 2. Iniciamos el controlador del juego
     juego = new Juego(nivel);
     juego.iniciarPartida();
-    generarTablero();
+    
+    // 3. Mostramos las cartas tapadas y actualizamos la interfaz
+    actualizarTablero();
     actualizarEtiquetas();
     iniciarTimerCronometro();
 }
@@ -53,6 +60,22 @@ public class FrmJuegoMemoria extends javax.swing.JFrame {
         btnCambiarNivel = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
         PanelTablero = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
+        jButton11 = new javax.swing.JButton();
+        jButton12 = new javax.swing.JButton();
+        jButton13 = new javax.swing.JButton();
+        jButton14 = new javax.swing.JButton();
+        jButton15 = new javax.swing.JButton();
+        jButton16 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Juego Memoria");
@@ -110,32 +133,77 @@ public class FrmJuegoMemoria extends javax.swing.JFrame {
 
         PanelTablero.setBackground(new java.awt.Color(255, 204, 204));
         PanelTablero.setPreferredSize(new java.awt.Dimension(360, 320));
-        PanelTablero.setLayout(new java.awt.GridLayout(8, 8));
+        PanelTablero.setLayout(new java.awt.GridLayout(4, 4, 4, 4));
+
+        jButton1.setText("jButton1");
+        PanelTablero.add(jButton1);
+
+        jButton2.setText("jButton2");
+        PanelTablero.add(jButton2);
+
+        jButton3.setText("jButton3");
+        PanelTablero.add(jButton3);
+
+        jButton5.setText("jButton5");
+        PanelTablero.add(jButton5);
+
+        jButton6.setText("jButton6");
+        PanelTablero.add(jButton6);
+
+        jButton7.setText("jButton7");
+        PanelTablero.add(jButton7);
+
+        jButton8.setText("jButton8");
+        PanelTablero.add(jButton8);
+
+        jButton9.setText("jButton9");
+        PanelTablero.add(jButton9);
+
+        jButton10.setText("jButton10");
+        PanelTablero.add(jButton10);
+
+        jButton11.setText("jButton11");
+        PanelTablero.add(jButton11);
+
+        jButton12.setText("jButton12");
+        PanelTablero.add(jButton12);
+
+        jButton13.setText("jButton13");
+        PanelTablero.add(jButton13);
+
+        jButton14.setText("jButton14");
+        PanelTablero.add(jButton14);
+
+        jButton15.setText("jButton15");
+        PanelTablero.add(jButton15);
+
+        jButton16.setText("jButton16");
+        PanelTablero.add(jButton16);
+
+        jButton4.setText("jButton4");
+        PanelTablero.add(jButton4);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblNivelActual, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblPuntaje, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lblNivelActual, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblPuntaje, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblIntentos, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblParejas, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblTiempo, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnReiniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(PanelTablero, javax.swing.GroupLayout.PREFERRED_SIZE, 479, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(77, 77, 77)))
+                        .addComponent(btnReiniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(PanelTablero, javax.swing.GroupLayout.PREFERRED_SIZE, 479, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnCambiarNivel)
                     .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -161,15 +229,15 @@ public class FrmJuegoMemoria extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(PanelTablero, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(22, 22, 22))))
+                        .addGap(27, 27, 27))))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnReiniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReiniciarActionPerformed
-        juego.reiniciarPartida();
-    generarTablero();
+       juego.reiniciarPartida();
+    actualizarTablero(); 
     actualizarEtiquetas();
     iniciarTimerCronometro();
     }//GEN-LAST:event_btnReiniciarActionPerformed
@@ -219,7 +287,7 @@ public class FrmJuegoMemoria extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new FrmJuegoMemoria(Nivel.PRINCIPIANTE).setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new FrmPrincipiante(Nivel.PRINCIPIANTE).setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -227,6 +295,22 @@ public class FrmJuegoMemoria extends javax.swing.JFrame {
     private javax.swing.JButton btnCambiarNivel;
     private javax.swing.JButton btnReiniciar;
     private javax.swing.JButton btnSalir;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton13;
+    private javax.swing.JButton jButton14;
+    private javax.swing.JButton jButton15;
+    private javax.swing.JButton jButton16;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JLabel lblIntentos;
     private javax.swing.JLabel lblNivelActual;
     private javax.swing.JLabel lblParejas;
@@ -234,42 +318,9 @@ public class FrmJuegoMemoria extends javax.swing.JFrame {
     private javax.swing.JLabel lblTiempo;
     // End of variables declaration//GEN-END:variables
 
-private void generarTablero() {
-    int filas = juego.getTablero().getFilas();
-    int columnas = juego.getTablero().getColumnas();
-    PanelTablero.removeAll();
-    PanelTablero.setLayout(new java.awt.GridLayout(filas, columnas, 5, 5));
-    botones = new JButton[filas][columnas];
-    for (int f = 0; f < filas; f++) {
-        for (int c = 0; c < columnas; c++) {
-            JButton boton = new JButton("?");
-            boton.setPreferredSize(new java.awt.Dimension(70, 70));
-            boton.setFont(new java.awt.Font("Tahoma", java.awt.Font.BOLD, 14));
-            final int fila = f;
-            final int columna = c;
-            boton.addActionListener(e -> {
-                juego.seleccionarCarta(fila, columna);
-                actualizarTablero();
-                actualizarEtiquetas();
-                if (juego.isEsperandoComparacion()) {
-                    Timer timer = new Timer(2000, ev -> {
-                        juego.limpiarSeleccion();
-                        actualizarTablero();
-                    });
-                    timer.setRepeats(false);
-                    timer.start();
-                }
-            });
-            botones[f][c] = boton;
-            PanelTablero.add(boton);
-        }
-    }
 
-    PanelTablero.revalidate();
-    PanelTablero.repaint();
-    pack();
-    setLocationRelativeTo(null);
-}
+
+
 private void actualizarTablero() {
     int filas = juego.getTablero().getFilas();
     int columnas = juego.getTablero().getColumnas();
@@ -323,6 +374,62 @@ private void mostrarFinDeJuego() {
     JOptionPane.showMessageDialog(this, mensaje, "Juego terminado",
             JOptionPane.INFORMATION_MESSAGE);
 }
+private void inicializarMatrizBotones() {
+    botones = new JButton[4][4];
+
+    // Mapeamos manualmente cada botón arrastrado desde NetBeans
+    botones[0][0] = jButton1;
+    botones[0][1] = jButton2;
+    botones[0][2] = jButton3;
+    botones[0][3] = jButton4;
+
+    botones[1][0] = jButton5;
+    botones[1][1] = jButton6;
+    botones[1][2] = jButton7;
+    botones[1][3] = jButton8;
+
+    botones[2][0] = jButton9;
+    botones[2][1] = jButton10;
+    botones[2][2] = jButton11;
+    botones[2][3] = jButton12;
+
+    botones[3][0] = jButton13;
+    botones[3][1] = jButton14;
+    botones[3][2] = jButton15;
+    botones[3][3] = jButton16;
+
+    // Asignamos la acción de clic a cada botón
+    for (int f = 0; f < 4; f++) {
+        for (int c = 0; c < 4; c++) {
+            final int fila = f;
+            final int columna = c;
+            botones[f][c].addActionListener(e -> manejarClickCarta(fila, columna));
+        }
+    }
 }
 
+private void manejarClickCarta(int fila, int columna) {
+    // Si estamos esperando el retardo de 2 segundos, ignoramos clics extra
+    if (juego.isEsperandoComparacion()) {
+        return; 
+    }
 
+    // Volteamos la carta elegida
+    juego.seleccionarCarta(fila, columna);
+    actualizarTablero();
+
+    // Si se seleccionaron 2 cartas y no coinciden, iniciamos el retardo
+    if (juego.isEsperandoComparacion()) {
+        Timer timerEspera = new Timer(2000, e -> {
+            juego.limpiarSeleccion(); // Las vuelve a ocultar
+            actualizarTablero();
+            actualizarEtiquetas();
+        });
+        timerEspera.setRepeats(false); // Se ejecuta solo una vez
+        timerEspera.start();
+    } else {
+        actualizarEtiquetas();
+    }
+}
+
+}
