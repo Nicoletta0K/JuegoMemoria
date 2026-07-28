@@ -3,44 +3,21 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package vista;
-import modelo.Nivel;
-import modelo.Carta;
-import controlador.Juego;
-import javax.swing.JButton;
-import javax.swing.Timer;
-import javax.swing.JOptionPane;
 
 /**
- 
+ *
+ * @author norki
  */
-public class FrmPrincipiante extends javax.swing.JFrame {
+public class frmAvanzado extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrmPrincipiante.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(frmAvanzado.class.getName());
 
     /**
-     * Creates new form FrmPrincipiante
+     * Creates new form frmAvanzado
      */
-    private Nivel nivelActual;
-    private Juego juego;
-    private JButton[][] botones;
-    private Timer timerCronometro;
-    public FrmPrincipiante(Nivel nivel) {
-    initComponents();
-    this.nivelActual = nivel;
-    lblNivelActual.setText("Nivel: " + nivel.name());
-    
-    // 1. Vinculamos los botones creados en la GUI a la matriz bidimensional
-    inicializarMatrizBotones();
-    
-    // 2. Iniciamos el controlador del juego
-    juego = new Juego(nivel);
-    juego.iniciarPartida();
-    
-    // 3. Mostramos las cartas tapadas y actualizamos la interfaz
-    actualizarTablero();
-    actualizarEtiquetas();
-    iniciarTimerCronometro();
-}
+    public frmAvanzado() {
+        initComponents();
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -51,13 +28,6 @@ public class FrmPrincipiante extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblPuntaje = new javax.swing.JLabel();
-        lblIntentos = new javax.swing.JLabel();
-        lblParejas = new javax.swing.JLabel();
-        lblTiempo = new javax.swing.JLabel();
-        lblNivelActual = new javax.swing.JLabel();
-        btnReiniciar = new javax.swing.JButton();
-        btnCambiarNivel = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
         PanelTablero = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
@@ -76,54 +46,15 @@ public class FrmPrincipiante extends javax.swing.JFrame {
         jButton15 = new javax.swing.JButton();
         jButton16 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        lblPuntaje = new javax.swing.JLabel();
+        lblIntentos = new javax.swing.JLabel();
+        lblParejas = new javax.swing.JLabel();
+        lblTiempo = new javax.swing.JLabel();
+        lblNivelActual = new javax.swing.JLabel();
+        btnReiniciar = new javax.swing.JButton();
+        btnCambiarNivel = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Juego Memoria");
-        setResizable(false);
-
-        lblPuntaje.setBackground(new java.awt.Color(204, 204, 255));
-        lblPuntaje.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lblPuntaje.setText("         Puntaje");
-        lblPuntaje.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        lblPuntaje.setOpaque(true);
-
-        lblIntentos.setBackground(new java.awt.Color(204, 204, 255));
-        lblIntentos.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lblIntentos.setText("          Intentos");
-        lblIntentos.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        lblIntentos.setOpaque(true);
-
-        lblParejas.setBackground(new java.awt.Color(204, 204, 255));
-        lblParejas.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lblParejas.setText("          Parejas");
-        lblParejas.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        lblParejas.setOpaque(true);
-
-        lblTiempo.setBackground(new java.awt.Color(204, 204, 255));
-        lblTiempo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lblTiempo.setText("       Tiempo");
-        lblTiempo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        lblTiempo.setOpaque(true);
-
-        lblNivelActual.setBackground(new java.awt.Color(204, 204, 255));
-        lblNivelActual.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lblNivelActual.setText("Nivel: Principiante");
-        lblNivelActual.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        lblNivelActual.setOpaque(true);
-
-        btnReiniciar.setBackground(new java.awt.Color(204, 204, 255));
-        btnReiniciar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnReiniciar.setText("Reiniciar");
-        btnReiniciar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnReiniciar.setOpaque(true);
-        btnReiniciar.addActionListener(this::btnReiniciarActionPerformed);
-
-        btnCambiarNivel.setBackground(new java.awt.Color(204, 204, 255));
-        btnCambiarNivel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnCambiarNivel.setText("Cambiar Nivel");
-        btnCambiarNivel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnCambiarNivel.setOpaque(true);
-        btnCambiarNivel.addActionListener(this::btnCambiarNivelActionPerformed);
 
         btnSalir.setBackground(new java.awt.Color(204, 204, 255));
         btnSalir.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -183,6 +114,50 @@ public class FrmPrincipiante extends javax.swing.JFrame {
         jButton4.setText("jButton4");
         PanelTablero.add(jButton4);
 
+        lblPuntaje.setBackground(new java.awt.Color(204, 204, 255));
+        lblPuntaje.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblPuntaje.setText("         Puntaje");
+        lblPuntaje.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        lblPuntaje.setOpaque(true);
+
+        lblIntentos.setBackground(new java.awt.Color(204, 204, 255));
+        lblIntentos.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblIntentos.setText("          Intentos");
+        lblIntentos.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        lblIntentos.setOpaque(true);
+
+        lblParejas.setBackground(new java.awt.Color(204, 204, 255));
+        lblParejas.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblParejas.setText("          Parejas");
+        lblParejas.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        lblParejas.setOpaque(true);
+
+        lblTiempo.setBackground(new java.awt.Color(204, 204, 255));
+        lblTiempo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblTiempo.setText("       Tiempo");
+        lblTiempo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        lblTiempo.setOpaque(true);
+
+        lblNivelActual.setBackground(new java.awt.Color(204, 204, 255));
+        lblNivelActual.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblNivelActual.setText("Nivel: Principiante");
+        lblNivelActual.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        lblNivelActual.setOpaque(true);
+
+        btnReiniciar.setBackground(new java.awt.Color(204, 204, 255));
+        btnReiniciar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnReiniciar.setText("Reiniciar");
+        btnReiniciar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnReiniciar.setOpaque(true);
+        btnReiniciar.addActionListener(this::btnReiniciarActionPerformed);
+
+        btnCambiarNivel.setBackground(new java.awt.Color(204, 204, 255));
+        btnCambiarNivel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnCambiarNivel.setText("Cambiar Nivel");
+        btnCambiarNivel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnCambiarNivel.setOpaque(true);
+        btnCambiarNivel.addActionListener(this::btnCambiarNivelActionPerformed);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -235,34 +210,32 @@ public class FrmPrincipiante extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnReiniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReiniciarActionPerformed
-       juego.reiniciarPartida();
-    actualizarTablero(); 
-    actualizarEtiquetas();
-    iniciarTimerCronometro();
-    }//GEN-LAST:event_btnReiniciarActionPerformed
-
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         int respuesta = JOptionPane.showConfirmDialog(this,
-        "Deseas salir?", "Confirmar salida",
-        JOptionPane.YES_NO_OPTION);
-    if (respuesta == JOptionPane.YES_OPTION) {
-        System.exit(0);
-    }
+            "Deseas salir?", "Confirmar salida",
+            JOptionPane.YES_NO_OPTION);
+        if (respuesta == JOptionPane.YES_OPTION) {
+            System.exit(0);
+        }
     }//GEN-LAST:event_btnSalirActionPerformed
 
+    private void btnReiniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReiniciarActionPerformed
+        juego.reiniciarPartida();
+        actualizarTablero();
+        actualizarEtiquetas();
+        iniciarTimerCronometro();
+    }//GEN-LAST:event_btnReiniciarActionPerformed
+
     private void btnCambiarNivelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiarNivelActionPerformed
-      if (timerCronometro != null) {
-        timerCronometro.stop();
-    }
-    
-    
-    FrmSeleccionNivel seleccion = new FrmSeleccionNivel();
-    seleccion.setLocationRelativeTo(null); 
-    seleccion.setVisible(true);
-    
-   
-    this.dispose();
+        if (timerCronometro != null) {
+            timerCronometro.stop();
+        }
+
+        FrmSeleccionNivel seleccion = new FrmSeleccionNivel();
+        seleccion.setLocationRelativeTo(null);
+        seleccion.setVisible(true);
+
+        this.dispose();
     }//GEN-LAST:event_btnCambiarNivelActionPerformed
 
     /**
@@ -287,7 +260,7 @@ public class FrmPrincipiante extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new FrmPrincipiante(Nivel.PRINCIPIANTE).setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new frmAvanzado().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -317,116 +290,4 @@ public class FrmPrincipiante extends javax.swing.JFrame {
     private javax.swing.JLabel lblPuntaje;
     private javax.swing.JLabel lblTiempo;
     // End of variables declaration//GEN-END:variables
-
-
-
-
-private void actualizarTablero() {
-    int filas = juego.getTablero().getFilas();
-    int columnas = juego.getTablero().getColumnas();
-
-    for (int f = 0; f < filas; f++) {
-        for (int c = 0; c < columnas; c++) {
-            Carta carta = juego.getTablero().obtenerCarta(f, c);
-            JButton boton = botones[f][c];
-
-            if (carta.isEncontrada() || carta.isVisible()) {
-                boton.setText(carta.getImagen());
-                boton.setEnabled(!carta.isEncontrada());
-            } else {
-                boton.setText("?");
-                boton.setEnabled(true);
-            }
-        }
-    }
-}
-
-private void actualizarEtiquetas() {
-    lblPuntaje.setText("Puntaje: " + juego.getJugador().getPuntaje());
-    lblIntentos.setText("Intentos: " + juego.getJugador().getIntentos());
-    lblParejas.setText("Parejas: " + juego.getJugador().getParejasEncontradas());
-    lblTiempo.setText("Tiempo: " + juego.getCronometro().obtenerTiempoFormateado());
-}
-
-private void iniciarTimerCronometro() {
-    if (timerCronometro != null) {
-        timerCronometro.stop();
-    }
-
-    timerCronometro = new Timer(1000, e -> {
-        juego.getCronometro().incrementar();
-        lblTiempo.setText("Tiempo: " + juego.getCronometro().obtenerTiempoFormateado());
-
-        if (juego.juegoTerminado()) {
-            timerCronometro.stop();
-            mostrarFinDeJuego();
-        }
-    });
-    timerCronometro.start();
-}
-
-private void mostrarFinDeJuego() {
-    String mensaje = "¡Felicidades, completaste el juego!\n\n"
-            + "Puntaje final: " + juego.getJugador().getPuntaje() + "\n"
-            + "Intentos: " + juego.getJugador().getIntentos() + "\n"
-            + "Tiempo: " + juego.getCronometro().obtenerTiempoFormateado();
-
-    JOptionPane.showMessageDialog(this, mensaje, "Juego terminado",
-            JOptionPane.INFORMATION_MESSAGE);
-}
-private void inicializarMatrizBotones() {
-    botones = new JButton[4][4];
-
-    // Mapeamos manualmente cada botón arrastrado desde NetBeans
-    botones[0][0] = jButton1;
-    botones[0][1] = jButton2;
-    botones[0][2] = jButton3;
-    botones[0][3] = jButton4;
-    botones[1][0] = jButton5;
-    botones[1][1] = jButton6;
-    botones[1][2] = jButton7;
-    botones[1][3] = jButton8;
-    botones[2][0] = jButton9;
-    botones[2][1] = jButton10;
-    botones[2][2] = jButton11;
-    botones[2][3] = jButton12;
-    botones[3][0] = jButton13;
-    botones[3][1] = jButton14;
-    botones[3][2] = jButton15;
-    botones[3][3] = jButton16;
-
-    // Asignamos la acción de clic a cada botón
-    for (int f = 0; f < 4; f++) {
-        for (int c = 0; c < 4; c++) {
-            final int fila = f;
-            final int columna = c;
-            botones[f][c].addActionListener(e -> manejarClickCarta(fila, columna));
-        }
-    }
-}
-
-private void manejarClickCarta(int fila, int columna) {
-    // Si estamos esperando el retardo de 2 segundos, ignoramos clics extra
-    if (juego.isEsperandoComparacion()) {
-        return; 
-    }
-
-    // Volteamos la carta elegida
-    juego.seleccionarCarta(fila, columna);
-    actualizarTablero();
-
-    // Si se seleccionaron 2 cartas y no coinciden, iniciamos el retardo
-    if (juego.isEsperandoComparacion()) {
-        Timer timerEspera = new Timer(2000, e -> {
-            juego.limpiarSeleccion(); // Las vuelve a ocultar
-            actualizarTablero();
-            actualizarEtiquetas();
-        });
-        timerEspera.setRepeats(false); // Se ejecuta solo una vez
-        timerEspera.start();
-    } else {
-        actualizarEtiquetas();
-    }
-}
-
 }
