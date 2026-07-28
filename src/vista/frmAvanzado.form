@@ -125,6 +125,11 @@
             <Property name="text" type="java.lang.String" value="jButton3"/>
           </Properties>
         </Component>
+        <Component class="javax.swing.JButton" name="jButton4">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="jButton4"/>
+          </Properties>
+        </Component>
         <Component class="javax.swing.JButton" name="jButton5">
           <Properties>
             <Property name="text" type="java.lang.String" value="jButton5"/>
@@ -188,11 +193,6 @@
         <Component class="javax.swing.JButton" name="jButton17">
           <Properties>
             <Property name="text" type="java.lang.String" value="jButton17"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="jButton4">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jButton4"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="jButton18">

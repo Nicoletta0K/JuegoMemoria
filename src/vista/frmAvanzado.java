@@ -35,6 +35,7 @@ public class frmAvanzado extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
@@ -48,7 +49,6 @@ public class frmAvanzado extends javax.swing.JFrame {
         jButton15 = new javax.swing.JButton();
         jButton16 = new javax.swing.JButton();
         jButton17 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
         jButton18 = new javax.swing.JButton();
         jButton19 = new javax.swing.JButton();
         jButton20 = new javax.swing.JButton();
@@ -125,6 +125,9 @@ public class frmAvanzado extends javax.swing.JFrame {
         jButton3.setText("jButton3");
         PanelTablero.add(jButton3);
 
+        jButton4.setText("jButton4");
+        PanelTablero.add(jButton4);
+
         jButton5.setText("jButton5");
         PanelTablero.add(jButton5);
 
@@ -163,9 +166,6 @@ public class frmAvanzado extends javax.swing.JFrame {
 
         jButton17.setText("jButton17");
         PanelTablero.add(jButton17);
-
-        jButton4.setText("jButton4");
-        PanelTablero.add(jButton4);
 
         jButton18.setText("jButton18");
         PanelTablero.add(jButton18);
