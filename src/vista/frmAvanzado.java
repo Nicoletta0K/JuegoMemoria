@@ -4,6 +4,8 @@
  */
 package vista;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author norki
@@ -45,7 +47,55 @@ public class frmAvanzado extends javax.swing.JFrame {
         jButton14 = new javax.swing.JButton();
         jButton15 = new javax.swing.JButton();
         jButton16 = new javax.swing.JButton();
+        jButton17 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jButton18 = new javax.swing.JButton();
+        jButton19 = new javax.swing.JButton();
+        jButton20 = new javax.swing.JButton();
+        jButton21 = new javax.swing.JButton();
+        jButton22 = new javax.swing.JButton();
+        jButton23 = new javax.swing.JButton();
+        jButton24 = new javax.swing.JButton();
+        jButton25 = new javax.swing.JButton();
+        jButton26 = new javax.swing.JButton();
+        jButton27 = new javax.swing.JButton();
+        jButton28 = new javax.swing.JButton();
+        jButton29 = new javax.swing.JButton();
+        jButton30 = new javax.swing.JButton();
+        jButton31 = new javax.swing.JButton();
+        jButton32 = new javax.swing.JButton();
+        jButton33 = new javax.swing.JButton();
+        jButton34 = new javax.swing.JButton();
+        jButton35 = new javax.swing.JButton();
+        jButton36 = new javax.swing.JButton();
+        jButton37 = new javax.swing.JButton();
+        jButton38 = new javax.swing.JButton();
+        jButton39 = new javax.swing.JButton();
+        jButton40 = new javax.swing.JButton();
+        jButton41 = new javax.swing.JButton();
+        jButton42 = new javax.swing.JButton();
+        jButton43 = new javax.swing.JButton();
+        jButton44 = new javax.swing.JButton();
+        jButton45 = new javax.swing.JButton();
+        jButton46 = new javax.swing.JButton();
+        jButton47 = new javax.swing.JButton();
+        jButton48 = new javax.swing.JButton();
+        jButton49 = new javax.swing.JButton();
+        jButton50 = new javax.swing.JButton();
+        jButton51 = new javax.swing.JButton();
+        jButton52 = new javax.swing.JButton();
+        jButton53 = new javax.swing.JButton();
+        jButton54 = new javax.swing.JButton();
+        jButton55 = new javax.swing.JButton();
+        jButton56 = new javax.swing.JButton();
+        jButton57 = new javax.swing.JButton();
+        jButton58 = new javax.swing.JButton();
+        jButton59 = new javax.swing.JButton();
+        jButton60 = new javax.swing.JButton();
+        jButton61 = new javax.swing.JButton();
+        jButton62 = new javax.swing.JButton();
+        jButton63 = new javax.swing.JButton();
+        jButton64 = new javax.swing.JButton();
         lblPuntaje = new javax.swing.JLabel();
         lblIntentos = new javax.swing.JLabel();
         lblParejas = new javax.swing.JLabel();
@@ -64,7 +114,7 @@ public class frmAvanzado extends javax.swing.JFrame {
 
         PanelTablero.setBackground(new java.awt.Color(255, 204, 204));
         PanelTablero.setPreferredSize(new java.awt.Dimension(360, 320));
-        PanelTablero.setLayout(new java.awt.GridLayout(4, 4, 4, 4));
+        PanelTablero.setLayout(new java.awt.GridLayout(8, 8, 16, 8));
 
         jButton1.setText("jButton1");
         PanelTablero.add(jButton1);
@@ -111,8 +161,152 @@ public class frmAvanzado extends javax.swing.JFrame {
         jButton16.setText("jButton16");
         PanelTablero.add(jButton16);
 
+        jButton17.setText("jButton17");
+        PanelTablero.add(jButton17);
+
         jButton4.setText("jButton4");
         PanelTablero.add(jButton4);
+
+        jButton18.setText("jButton18");
+        PanelTablero.add(jButton18);
+
+        jButton19.setText("jButton19");
+        PanelTablero.add(jButton19);
+
+        jButton20.setText("jButton20");
+        PanelTablero.add(jButton20);
+
+        jButton21.setText("jButton21");
+        PanelTablero.add(jButton21);
+
+        jButton22.setText("jButton21");
+        PanelTablero.add(jButton22);
+
+        jButton23.setText("jButton21");
+        PanelTablero.add(jButton23);
+
+        jButton24.setText("jButton21");
+        PanelTablero.add(jButton24);
+
+        jButton25.setText("jButton21");
+        PanelTablero.add(jButton25);
+
+        jButton26.setText("jButton21");
+        PanelTablero.add(jButton26);
+
+        jButton27.setText("jButton21");
+        PanelTablero.add(jButton27);
+
+        jButton28.setText("jButton21");
+        PanelTablero.add(jButton28);
+
+        jButton29.setText("jButton21");
+        PanelTablero.add(jButton29);
+
+        jButton30.setText("jButton21");
+        PanelTablero.add(jButton30);
+
+        jButton31.setText("jButton21");
+        PanelTablero.add(jButton31);
+
+        jButton32.setText("jButton21");
+        PanelTablero.add(jButton32);
+
+        jButton33.setText("jButton1");
+        PanelTablero.add(jButton33);
+
+        jButton34.setText("jButton2");
+        PanelTablero.add(jButton34);
+
+        jButton35.setText("jButton3");
+        PanelTablero.add(jButton35);
+
+        jButton36.setText("jButton5");
+        PanelTablero.add(jButton36);
+
+        jButton37.setText("jButton6");
+        PanelTablero.add(jButton37);
+
+        jButton38.setText("jButton7");
+        PanelTablero.add(jButton38);
+
+        jButton39.setText("jButton8");
+        PanelTablero.add(jButton39);
+
+        jButton40.setText("jButton9");
+        PanelTablero.add(jButton40);
+
+        jButton41.setText("jButton10");
+        PanelTablero.add(jButton41);
+
+        jButton42.setText("jButton11");
+        PanelTablero.add(jButton42);
+
+        jButton43.setText("jButton12");
+        PanelTablero.add(jButton43);
+
+        jButton44.setText("jButton13");
+        PanelTablero.add(jButton44);
+
+        jButton45.setText("jButton14");
+        PanelTablero.add(jButton45);
+
+        jButton46.setText("jButton15");
+        PanelTablero.add(jButton46);
+
+        jButton47.setText("jButton16");
+        PanelTablero.add(jButton47);
+
+        jButton48.setText("jButton17");
+        PanelTablero.add(jButton48);
+
+        jButton49.setText("jButton4");
+        PanelTablero.add(jButton49);
+
+        jButton50.setText("jButton18");
+        PanelTablero.add(jButton50);
+
+        jButton51.setText("jButton19");
+        PanelTablero.add(jButton51);
+
+        jButton52.setText("jButton20");
+        PanelTablero.add(jButton52);
+
+        jButton53.setText("jButton21");
+        PanelTablero.add(jButton53);
+
+        jButton54.setText("jButton21");
+        PanelTablero.add(jButton54);
+
+        jButton55.setText("jButton21");
+        PanelTablero.add(jButton55);
+
+        jButton56.setText("jButton21");
+        PanelTablero.add(jButton56);
+
+        jButton57.setText("jButton21");
+        PanelTablero.add(jButton57);
+
+        jButton58.setText("jButton21");
+        PanelTablero.add(jButton58);
+
+        jButton59.setText("jButton21");
+        PanelTablero.add(jButton59);
+
+        jButton60.setText("jButton21");
+        PanelTablero.add(jButton60);
+
+        jButton61.setText("jButton21");
+        PanelTablero.add(jButton61);
+
+        jButton62.setText("jButton21");
+        PanelTablero.add(jButton62);
+
+        jButton63.setText("jButton21");
+        PanelTablero.add(jButton63);
+
+        jButton64.setText("jButton21");
+        PanelTablero.add(jButton64);
 
         lblPuntaje.setBackground(new java.awt.Color(204, 204, 255));
         lblPuntaje.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -164,25 +358,27 @@ public class frmAvanzado extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblNivelActual, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblPuntaje, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblNivelActual, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblPuntaje, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblIntentos, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblParejas, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblTiempo, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnReiniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(PanelTablero, javax.swing.GroupLayout.PREFERRED_SIZE, 479, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnCambiarNivel)
-                    .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                        .addComponent(btnReiniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnCambiarNivel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(590, 590, 590))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(PanelTablero, javax.swing.GroupLayout.PREFERRED_SIZE, 1001, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(439, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -195,16 +391,11 @@ public class frmAvanzado extends javax.swing.JFrame {
                     .addComponent(lblParejas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblTiempo)
                     .addComponent(btnReiniciar)
-                    .addComponent(btnCambiarNivel))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(308, 308, 308)
-                        .addComponent(btnSalir)
-                        .addGap(14, 14, 14))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(PanelTablero, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27))))
+                    .addComponent(btnCambiarNivel)
+                    .addComponent(btnSalir))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(PanelTablero, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -276,11 +467,59 @@ public class frmAvanzado extends javax.swing.JFrame {
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton16;
+    private javax.swing.JButton jButton17;
+    private javax.swing.JButton jButton18;
+    private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton20;
+    private javax.swing.JButton jButton21;
+    private javax.swing.JButton jButton22;
+    private javax.swing.JButton jButton23;
+    private javax.swing.JButton jButton24;
+    private javax.swing.JButton jButton25;
+    private javax.swing.JButton jButton26;
+    private javax.swing.JButton jButton27;
+    private javax.swing.JButton jButton28;
+    private javax.swing.JButton jButton29;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton30;
+    private javax.swing.JButton jButton31;
+    private javax.swing.JButton jButton32;
+    private javax.swing.JButton jButton33;
+    private javax.swing.JButton jButton34;
+    private javax.swing.JButton jButton35;
+    private javax.swing.JButton jButton36;
+    private javax.swing.JButton jButton37;
+    private javax.swing.JButton jButton38;
+    private javax.swing.JButton jButton39;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton40;
+    private javax.swing.JButton jButton41;
+    private javax.swing.JButton jButton42;
+    private javax.swing.JButton jButton43;
+    private javax.swing.JButton jButton44;
+    private javax.swing.JButton jButton45;
+    private javax.swing.JButton jButton46;
+    private javax.swing.JButton jButton47;
+    private javax.swing.JButton jButton48;
+    private javax.swing.JButton jButton49;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton50;
+    private javax.swing.JButton jButton51;
+    private javax.swing.JButton jButton52;
+    private javax.swing.JButton jButton53;
+    private javax.swing.JButton jButton54;
+    private javax.swing.JButton jButton55;
+    private javax.swing.JButton jButton56;
+    private javax.swing.JButton jButton57;
+    private javax.swing.JButton jButton58;
+    private javax.swing.JButton jButton59;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton60;
+    private javax.swing.JButton jButton61;
+    private javax.swing.JButton jButton62;
+    private javax.swing.JButton jButton63;
+    private javax.swing.JButton jButton64;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
