@@ -7,6 +7,7 @@ import controlador.Juego;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
+import modelo.Carta;
 import modelo.Nivel;
 /**
  *
@@ -95,7 +96,7 @@ public class frmIntermedio extends javax.swing.JFrame {
 
         PanelTablero.setBackground(new java.awt.Color(255, 204, 204));
         PanelTablero.setPreferredSize(new java.awt.Dimension(360, 320));
-        PanelTablero.setLayout(new java.awt.GridLayout(4, 4, 8, 4));
+        PanelTablero.setLayout(new java.awt.GridLayout(4, 4, 4, 4));
 
         jButton1.setText("jButton1");
         PanelTablero.add(jButton1);
@@ -304,7 +305,7 @@ public class frmIntermedio extends javax.swing.JFrame {
         if (timerCronometro != null) {
             timerCronometro.stop();
         }
-        juego.iniciarPartida(); // Reinicia el estado del juego
+        juego.iniciarPartida(); 
         actualizarTablero();
         actualizarEtiquetas();
         iniciarTimerCronometro();
@@ -392,9 +393,7 @@ public class frmIntermedio extends javax.swing.JFrame {
     private javax.swing.JLabel lblTiempo;
     // End of variables declaration//GEN-END:variables
 private void inicializarMatrizBotones() {
-        // Matriz de 4 filas x 8 columnas para el nivel Intermedio (32 cartas)
-        botones = new javax.swing.JButton[4][8];
-
+       botones = new javax.swing.JButton[4][8];
         botones[0][0] = jButton1;
         botones[0][1] = jButton2;
         botones[0][2] = jButton3;
@@ -441,23 +440,18 @@ private void inicializarMatrizBotones() {
     }
 
    private void manejarClickCarta(int fila, int columna) {
-    // Si estamos esperando el retardo de 2 segundos, ignoramos clics extra
     if (juego.isEsperandoComparacion()) {
         return; 
     }
-
-    // Volteamos la carta elegida
     juego.seleccionarCarta(fila, columna);
     actualizarTablero();
-
-    // Si se seleccionaron 2 cartas y no coinciden, iniciamos el retardo
     if (juego.isEsperandoComparacion()) {
         javax.swing.Timer timerEspera = new javax.swing.Timer(2000, e -> {
-            juego.limpiarSeleccion(); // Las vuelve a ocultar
+            juego.limpiarSeleccion(); 
             actualizarTablero();
             actualizarEtiquetas();
         });
-        timerEspera.setRepeats(false); // Se ejecuta solo una vez
+        timerEspera.setRepeats(false); 
         timerEspera.start();
     } else {
         actualizarEtiquetas();
@@ -465,46 +459,67 @@ private void inicializarMatrizBotones() {
 }
 
     private void actualizarEtiquetas() {
-        // El puntaje, intentos y parejas están dentro de getJugador()
         lblPuntaje.setText("Puntaje: " + juego.getJugador().getPuntaje());
-        lblIntentos.setText("Intentos: " + juego.getJugador().getIntentos());
+    lblIntentos.setText("Intentos: " + juego.getJugador().getIntentos());
 
-        int parejasTotales = juego.getTablero().getNivel().getCantidadParejas();
-        lblParejas.setText("Parejas: " + juego.getJugador().getParejasEncontradas() + "/" + parejasTotales);
+    int parejasTotales = juego.getTablero().getNivel().getCantidadParejas();
 
-        lblNivelActual.setText("Nivel: " + juego.getTablero().getNivel().name());
-    }
+    lblParejas.setText("Parejas: "
+        + juego.getJugador().getParejasEncontradas()
+        + "/" + parejasTotales);
+
+    lblTiempo.setText("Tiempo: "
+        + juego.getCronometro().obtenerTiempoFormateado());
+
+    lblNivelActual.setText("Nivel: "
+        + juego.getTablero().getNivel().name());
+}
+    
 private void actualizarTablero() {
     int filas = juego.getTablero().getFilas();
     int columnas = juego.getTablero().getColumnas();
 
     for (int f = 0; f < filas; f++) {
         for (int c = 0; c < columnas; c++) {
-            modelo.Carta carta = juego.getTablero().obtenerCarta(f, c);
-            javax.swing.JButton boton = botones[f][c];
+
+            Carta carta = juego.getTablero().obtenerCarta(f, c);
+            JButton boton = botones[f][c];
 
             if (carta.isEncontrada() || carta.isVisible()) {
+
                 boton.setText(carta.getImagen());
-            } else {
-                boton.setText("?");
+                boton.setIcon(null);
+                boton.setEnabled(!carta.isEncontrada());
+
+            } else {       
+    boton.setText(boton.getName());
+    boton.setIcon(null);
+    boton.setEnabled(true);
             }
-            
-            // Se evalúa SIEMPRE, sin importar si está visible o no
-            boton.setEnabled(!carta.isEncontrada());
         }
     }
 }
-   private void iniciarTimerCronometro() {
-    if (timerCronometro != null && timerCronometro.isRunning()) {
-        timerCronometro.stop();
-    }
 
-
+           private void iniciarTimerCronometro() {
     timerCronometro = new javax.swing.Timer(1000, e -> {
-       
+        juego.getCronometro().incrementar();
+
+        lblTiempo.setText("Tiempo: " 
+            + juego.getCronometro().obtenerTiempoFormateado());
+
+        if (juego.juegoTerminado()) {
+            timerCronometro.stop();
+            mostrarFinDeJuego();
+        }
     });
-    
+
     timerCronometro.start();
-    
-    }
+}
+   private void mostrarFinDeJuego() {
+    JOptionPane.showMessageDialog(this,
+        "¡Juego terminado!\nPuntaje final: " 
+        + juego.getJugador().getPuntaje(),
+        "Fin del juego",
+        JOptionPane.INFORMATION_MESSAGE);
    }
+}
