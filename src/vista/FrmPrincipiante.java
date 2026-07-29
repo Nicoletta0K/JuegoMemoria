@@ -247,17 +247,23 @@ public class FrmPrincipiante extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnCambiarNivelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiarNivelActionPerformed
-      if (timerCronometro != null) {
-        timerCronometro.stop();
+       int respuesta = JOptionPane.showConfirmDialog(this,
+            "Si cambias de nivel perderás la partida actual.\n¿Deseas continuar?",
+            "Cambiar nivel",
+            JOptionPane.YES_NO_OPTION);
+
+    if (respuesta == JOptionPane.YES_OPTION) {
+
+        if (timerCronometro != null) {
+            timerCronometro.stop();
+        }
+
+        FrmSeleccionNivel seleccion = new FrmSeleccionNivel();
+        seleccion.setLocationRelativeTo(null);
+        seleccion.setVisible(true);
+
+        this.dispose();
     }
-    
-    
-    FrmSeleccionNivel seleccion = new FrmSeleccionNivel();
-    seleccion.setLocationRelativeTo(null); 
-    seleccion.setVisible(true);
-    
-   
-    this.dispose();
     }//GEN-LAST:event_btnCambiarNivelActionPerformed
 
     /**
@@ -332,10 +338,11 @@ private void actualizarTablero() {
                 boton.setIcon(null);
                 boton.setEnabled(!carta.isEncontrada());
 
-            } else {       
-    boton.setText(boton.getName());
-    boton.setIcon(null);
-    boton.setEnabled(true);
+            } else {
+
+                boton.setText("");
+                boton.setIcon(null);
+                boton.setEnabled(true);
             }
         }
     }

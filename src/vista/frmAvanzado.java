@@ -3,8 +3,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package vista;
-
+import controlador.Juego;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
+import modelo.Carta;
+import modelo.Nivel;
 
 /**
  *
@@ -13,12 +17,19 @@ import javax.swing.JOptionPane;
 public class frmAvanzado extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(frmAvanzado.class.getName());
+   private controlador.Juego juego;
+private javax.swing.Timer timerCronometro;
+private javax.swing.JButton[][] botones;
 
-    /**
-     * Creates new form frmAvanzado
-     */
     public frmAvanzado() {
         initComponents();
+        this.setLocationRelativeTo(null);
+    juego = new controlador.Juego(modelo.Nivel.AVANZADO);
+    juego.iniciarPartida();
+    inicializarMatrizBotones();
+        actualizarTablero();
+        actualizarInformacionJuego();
+         iniciarTimerCronometro();
     }
 
     /**
@@ -411,13 +422,30 @@ public class frmAvanzado extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnReiniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReiniciarActionPerformed
-        juego.reiniciarPartida();
+        int respuesta = JOptionPane.showConfirmDialog(this,
+            "¿Deseas reiniciar la partida actual?",
+            "Reiniciar Juego",
+            JOptionPane.YES_NO_OPTION);
+
+    if (respuesta == JOptionPane.YES_OPTION) {
+        if (timerCronometro != null) {
+            timerCronometro.stop();
+        }
+        juego.iniciarPartida(); 
         actualizarTablero();
-        actualizarEtiquetas();
+       actualizarInformacionJuego();
         iniciarTimerCronometro();
+    }
     }//GEN-LAST:event_btnReiniciarActionPerformed
 
     private void btnCambiarNivelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiarNivelActionPerformed
+       int respuesta = JOptionPane.showConfirmDialog(this,
+            "Si cambias de nivel perderás la partida actual.\n¿Deseas continuar?",
+            "Cambiar nivel",
+            JOptionPane.YES_NO_OPTION);
+
+    if (respuesta == JOptionPane.YES_OPTION) {
+
         if (timerCronometro != null) {
             timerCronometro.stop();
         }
@@ -427,6 +455,7 @@ public class frmAvanzado extends javax.swing.JFrame {
         seleccion.setVisible(true);
 
         this.dispose();
+    }
     }//GEN-LAST:event_btnCambiarNivelActionPerformed
 
     /**
@@ -452,8 +481,8 @@ public class frmAvanzado extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new frmAvanzado().setVisible(true));
+    
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PanelTablero;
     private javax.swing.JButton btnCambiarNivel;
@@ -529,4 +558,187 @@ public class frmAvanzado extends javax.swing.JFrame {
     private javax.swing.JLabel lblPuntaje;
     private javax.swing.JLabel lblTiempo;
     // End of variables declaration//GEN-END:variables
+private void inicializarMatrizBotones() {
+
+    botones = new javax.swing.JButton[8][8];
+
+    botones[0][0] = jButton1;
+    botones[0][1] = jButton2;
+    botones[0][2] = jButton3;
+    botones[0][3] = jButton4;
+    botones[0][4] = jButton5;
+    botones[0][5] = jButton6;
+    botones[0][6] = jButton7;
+    botones[0][7] = jButton8;
+
+    botones[1][0] = jButton9;
+    botones[1][1] = jButton10;
+    botones[1][2] = jButton11;
+    botones[1][3] = jButton12;
+    botones[1][4] = jButton13;
+    botones[1][5] = jButton14;
+    botones[1][6] = jButton15;
+    botones[1][7] = jButton16;
+
+    botones[2][0] = jButton17;
+    botones[2][1] = jButton18;
+    botones[2][2] = jButton19;
+    botones[2][3] = jButton20;
+    botones[2][4] = jButton21;
+    botones[2][5] = jButton22;
+    botones[2][6] = jButton23;
+    botones[2][7] = jButton24;
+
+    botones[3][0] = jButton25;
+    botones[3][1] = jButton26;
+    botones[3][2] = jButton27;
+    botones[3][3] = jButton28;
+    botones[3][4] = jButton29;
+    botones[3][5] = jButton30;
+    botones[3][6] = jButton31;
+    botones[3][7] = jButton32;
+
+    botones[4][0] = jButton33;
+    botones[4][1] = jButton34;
+    botones[4][2] = jButton35;
+    botones[4][3] = jButton36;
+    botones[4][4] = jButton37;
+    botones[4][5] = jButton38;
+    botones[4][6] = jButton39;
+    botones[4][7] = jButton40;
+
+    botones[5][0] = jButton41;
+    botones[5][1] = jButton42;
+    botones[5][2] = jButton43;
+    botones[5][3] = jButton44;
+    botones[5][4] = jButton45;
+    botones[5][5] = jButton46;
+    botones[5][6] = jButton47;
+    botones[5][7] = jButton48;
+
+    botones[6][0] = jButton49;
+    botones[6][1] = jButton50;
+    botones[6][2] = jButton51;
+    botones[6][3] = jButton52;
+    botones[6][4] = jButton53;
+    botones[6][5] = jButton54;
+    botones[6][6] = jButton55;
+    botones[6][7] = jButton56;
+
+    botones[7][0] = jButton57;
+    botones[7][1] = jButton58;
+    botones[7][2] = jButton59;
+    botones[7][3] = jButton60;
+    botones[7][4] = jButton61;
+    botones[7][5] = jButton62;
+    botones[7][6] = jButton63;
+    botones[7][7] = jButton64;
+
+    for (int f = 0; f < 8; f++) {
+        for (int c = 0; c < 8; c++) {
+            final int fila = f;
+            final int columna = c;
+            botones[f][c].addActionListener(e -> manejarClickCarta(fila, columna));
+        }
+    }
+}
+private void manejarClickCarta(int fila, int columna) {
+
+    if (juego.isEsperandoComparacion()) {
+        return;
+    }
+
+    juego.seleccionarCarta(fila, columna);
+    actualizarTablero();
+
+    if (juego.isEsperandoComparacion()) {
+
+        javax.swing.Timer timerEspera = new javax.swing.Timer(2000, e -> {
+            juego.limpiarSeleccion();
+            actualizarTablero();
+            actualizarInformacionJuego();
+        });
+
+        timerEspera.setRepeats(false);
+        timerEspera.start();
+
+    } else {
+        actualizarInformacionJuego();
+    }
+}
+private void actualizarInformacionJuego() {
+
+    lblPuntaje.setText("Puntaje: " + juego.getJugador().getPuntaje());
+
+    lblIntentos.setText("Intentos: " + juego.getJugador().getIntentos());
+
+    int parejasTotales = juego.getTablero().getNivel().getCantidadParejas();
+
+    lblParejas.setText("Parejas: "
+            + juego.getJugador().getParejasEncontradas()
+            + "/" + parejasTotales);
+
+    lblTiempo.setText("Tiempo: "
+            + juego.getCronometro().obtenerTiempoFormateado());
+
+    lblNivelActual.setText("Nivel: "
+            + juego.getTablero().getNivel().name());
+}
+private void actualizarTablero() {
+int filas = juego.getTablero().getFilas();
+    int columnas = juego.getTablero().getColumnas();
+
+    for (int f = 0; f < filas; f++) {
+        for (int c = 0; c < columnas; c++) {
+
+            Carta carta = juego.getTablero().obtenerCarta(f, c);
+            JButton boton = botones[f][c];
+
+            if (carta.isEncontrada() || carta.isVisible()) {
+
+                boton.setText(carta.getImagen());
+                boton.setIcon(null);
+                boton.setEnabled(!carta.isEncontrada());
+
+            } else {
+
+                boton.setText("");
+                boton.setIcon(null);
+                boton.setEnabled(true);
+            }
+        }
+    }
+}
+    
+private void iniciarTimerCronometro() {
+
+    timerCronometro = new javax.swing.Timer(1000, e -> {
+
+        juego.getCronometro().incrementar();
+
+        lblTiempo.setText("Tiempo: "
+                + juego.getCronometro().obtenerTiempoFormateado());
+
+        if (juego.juegoTerminado()) {
+            timerCronometro.stop();
+            mostrarFinDeJuego();
+        }
+    });
+
+    timerCronometro.start();
+}
+private void mostrarFinDeJuego() {
+
+    JOptionPane.showMessageDialog(this,
+            "¡Juego terminado!\nPuntaje final: "
+            + juego.getJugador().getPuntaje(),
+            "Fin del juego",
+            JOptionPane.INFORMATION_MESSAGE);
+
+    FrmSeleccionNivel frm = new FrmSeleccionNivel();
+    frm.setLocationRelativeTo(null);
+    frm.setVisible(true);
+
+    dispose();
+}
 }

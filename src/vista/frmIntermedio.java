@@ -26,14 +26,14 @@ public class frmIntermedio extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
 
-        // Inicializamos la lógica del juego
+        
         juego = new controlador.Juego(modelo.Nivel.INTERMEDIO);
         juego.iniciarPartida();
 
         inicializarMatrizBotones();
         actualizarTablero();
-        actualizarEtiquetas();
-        iniciarTimerCronometro();
+        actualizarInformacionJuego();
+         iniciarTimerCronometro();
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -307,12 +307,19 @@ public class frmIntermedio extends javax.swing.JFrame {
         }
         juego.iniciarPartida(); 
         actualizarTablero();
-        actualizarEtiquetas();
+       actualizarInformacionJuego();
         iniciarTimerCronometro();
     }
     }//GEN-LAST:event_btnReiniciarActionPerformed
 
     private void btnCambiarNivelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiarNivelActionPerformed
+         int respuesta = JOptionPane.showConfirmDialog(this,
+            "Si cambias de nivel perderás la partida actual.\n¿Deseas continuar?",
+            "Cambiar nivel",
+            JOptionPane.YES_NO_OPTION);
+
+    if (respuesta == JOptionPane.YES_OPTION) {
+
         if (timerCronometro != null) {
             timerCronometro.stop();
         }
@@ -322,6 +329,7 @@ public class frmIntermedio extends javax.swing.JFrame {
         seleccion.setVisible(true);
 
         this.dispose();
+    }
     }//GEN-LAST:event_btnCambiarNivelActionPerformed
 
     /**
@@ -449,16 +457,16 @@ private void inicializarMatrizBotones() {
         javax.swing.Timer timerEspera = new javax.swing.Timer(2000, e -> {
             juego.limpiarSeleccion(); 
             actualizarTablero();
-            actualizarEtiquetas();
+            actualizarInformacionJuego();
         });
         timerEspera.setRepeats(false); 
         timerEspera.start();
     } else {
-        actualizarEtiquetas();
+        actualizarInformacionJuego();
     }
 }
 
-    private void actualizarEtiquetas() {
+    private void actualizarInformacionJuego() {
         lblPuntaje.setText("Puntaje: " + juego.getJugador().getPuntaje());
     lblIntentos.setText("Intentos: " + juego.getJugador().getIntentos());
 
@@ -491,10 +499,11 @@ private void actualizarTablero() {
                 boton.setIcon(null);
                 boton.setEnabled(!carta.isEncontrada());
 
-            } else {       
-    boton.setText(boton.getName());
-    boton.setIcon(null);
-    boton.setEnabled(true);
+            } else {
+
+                boton.setText("");
+                boton.setIcon(null);
+                boton.setEnabled(true);
             }
         }
     }
