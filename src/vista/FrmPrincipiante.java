@@ -9,6 +9,7 @@ import controlador.Juego;
 import javax.swing.JButton;
 import javax.swing.Timer;
 import javax.swing.JOptionPane;
+import javax.swing.ImageIcon;
 
 /**
  
@@ -27,16 +28,10 @@ public class FrmPrincipiante extends javax.swing.JFrame {
     public FrmPrincipiante(Nivel nivel) {
     initComponents();
     this.nivelActual = nivel;
-    lblNivelActual.setText("Nivel: " + nivel.name());
-    
-    // 1. Vinculamos los botones creados en la GUI a la matriz bidimensional
-    inicializarMatrizBotones();
-    
-    // 2. Iniciamos el controlador del juego
     juego = new Juego(nivel);
     juego.iniciarPartida();
-    
-    // 3. Mostramos las cartas tapadas y actualizamos la interfaz
+    inicializarMatrizBotones();
+    lblNivelActual.setText("Nivel: " + nivel.name());
     actualizarTablero();
     actualizarEtiquetas();
     iniciarTimerCronometro();
@@ -63,6 +58,7 @@ public class FrmPrincipiante extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
@@ -75,7 +71,6 @@ public class FrmPrincipiante extends javax.swing.JFrame {
         jButton14 = new javax.swing.JButton();
         jButton15 = new javax.swing.JButton();
         jButton16 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Juego Memoria");
@@ -144,6 +139,9 @@ public class FrmPrincipiante extends javax.swing.JFrame {
         jButton3.setText("jButton3");
         PanelTablero.add(jButton3);
 
+        jButton4.setText("jButton4");
+        PanelTablero.add(jButton4);
+
         jButton5.setText("jButton5");
         PanelTablero.add(jButton5);
 
@@ -179,9 +177,6 @@ public class FrmPrincipiante extends javax.swing.JFrame {
 
         jButton16.setText("jButton16");
         PanelTablero.add(jButton16);
-
-        jButton4.setText("jButton4");
-        PanelTablero.add(jButton4);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -327,20 +322,25 @@ private void actualizarTablero() {
 
     for (int f = 0; f < filas; f++) {
         for (int c = 0; c < columnas; c++) {
+
             Carta carta = juego.getTablero().obtenerCarta(f, c);
             JButton boton = botones[f][c];
 
             if (carta.isEncontrada() || carta.isVisible()) {
+
                 boton.setText(carta.getImagen());
+                boton.setIcon(null);
                 boton.setEnabled(!carta.isEncontrada());
-            } else {
-                boton.setText("?");
-                boton.setEnabled(true);
+
+            } else {       
+    boton.setText(boton.getName());
+    boton.setIcon(null);
+    boton.setEnabled(true);
             }
         }
     }
 }
-
+   
 private void actualizarEtiquetas() {
     lblPuntaje.setText("Puntaje: " + juego.getJugador().getPuntaje());
     lblIntentos.setText("Intentos: " + juego.getJugador().getIntentos());
@@ -376,8 +376,6 @@ private void mostrarFinDeJuego() {
 }
 private void inicializarMatrizBotones() {
     botones = new JButton[4][4];
-
-    // Mapeamos manualmente cada botón arrastrado desde NetBeans
     botones[0][0] = jButton1;
     botones[0][1] = jButton2;
     botones[0][2] = jButton3;
@@ -394,35 +392,31 @@ private void inicializarMatrizBotones() {
     botones[3][1] = jButton14;
     botones[3][2] = jButton15;
     botones[3][3] = jButton16;
-
-    // Asignamos la acción de clic a cada botón
-    for (int f = 0; f < 4; f++) {
+   for (int f = 0; f < 4; f++) {
         for (int c = 0; c < 4; c++) {
             final int fila = f;
             final int columna = c;
+
             botones[f][c].addActionListener(e -> manejarClickCarta(fila, columna));
         }
     }
 }
 
 private void manejarClickCarta(int fila, int columna) {
-    // Si estamos esperando el retardo de 2 segundos, ignoramos clics extra
+    System.out.println("Click en fila: " + fila + " columna: " + columna);
     if (juego.isEsperandoComparacion()) {
         return; 
     }
 
-    // Volteamos la carta elegida
     juego.seleccionarCarta(fila, columna);
     actualizarTablero();
-
-    // Si se seleccionaron 2 cartas y no coinciden, iniciamos el retardo
     if (juego.isEsperandoComparacion()) {
         Timer timerEspera = new Timer(2000, e -> {
-            juego.limpiarSeleccion(); // Las vuelve a ocultar
+            juego.limpiarSeleccion(); 
             actualizarTablero();
             actualizarEtiquetas();
         });
-        timerEspera.setRepeats(false); // Se ejecuta solo una vez
+        timerEspera.setRepeats(false); 
         timerEspera.start();
     } else {
         actualizarEtiquetas();

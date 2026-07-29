@@ -53,9 +53,8 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblNivelActual" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                  <Group type="103" alignment="3" groupAlignment="3" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                       <Component id="lblPuntaje" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
                       <Component id="lblIntentos" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
                       <Component id="lblParejas" alignment="3" max="32767" attributes="0"/>
@@ -64,6 +63,7 @@
                       <Component id="btnReiniciar" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnSalir" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <Component id="lblNivelActual" min="-2" pref="26" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="PanelTablero" min="-2" pref="381" max="-2" attributes="0"/>
