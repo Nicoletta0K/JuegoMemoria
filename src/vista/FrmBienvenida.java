@@ -39,18 +39,18 @@ public class FrmBienvenida extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblTitulo.setFont(new java.awt.Font("Georgia", 3, 24)); // NOI18N
+        lblTitulo.setForeground(new java.awt.Color(255, 255, 255));
         lblTitulo.setText("BIENVENIDOS AL JUEGO DE MEMORIA");
-        getContentPane().add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 520, 44));
+        getContentPane().add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 120, 520, 44));
 
         btnJugar.setBackground(new java.awt.Color(153, 204, 255));
         btnJugar.setFont(new java.awt.Font("Georgia", 3, 18)); // NOI18N
-        btnJugar.setForeground(new java.awt.Color(0, 0, 0));
         btnJugar.setText("Dale click para jugar");
         btnJugar.addActionListener(this::btnJugarActionPerformed);
-        getContentPane().add(btnJugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 160, -1, 43));
+        getContentPane().add(btnJugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 240, -1, 43));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/fondo.jpeg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -4, 730, 390));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/4.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -4, 990, 570));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
