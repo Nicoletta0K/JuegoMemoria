@@ -35,62 +35,44 @@ public class FrmSeleccionNivel extends javax.swing.JFrame {
         btnPrincipiante = new javax.swing.JButton();
         btnIntermedio = new javax.swing.JButton();
         btnAvanzado = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Juego Memoria");
 
         jPanel1.setOpaque(false);
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblSeleccionNivel.setBackground(new java.awt.Color(255, 255, 255));
-        lblSeleccionNivel.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        lblSeleccionNivel.setText("               ¿Qué nivel quieres jugar?");
-        lblSeleccionNivel.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        lblSeleccionNivel.setBackground(new java.awt.Color(153, 153, 255));
+        lblSeleccionNivel.setFont(new java.awt.Font("Georgia", 3, 24)); // NOI18N
+        lblSeleccionNivel.setForeground(new java.awt.Color(255, 255, 255));
+        lblSeleccionNivel.setText(" ¿Qué nivel quieres jugar?");
+        jPanel1.add(lblSeleccionNivel, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, 340, 37));
 
-        btnPrincipiante.setBackground(new java.awt.Color(204, 255, 204));
-        btnPrincipiante.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        btnPrincipiante.setBackground(new java.awt.Color(204, 153, 255));
+        btnPrincipiante.setFont(new java.awt.Font("Georgia", 3, 18)); // NOI18N
         btnPrincipiante.setText("Principiante");
+        btnPrincipiante.setBorder(null);
         btnPrincipiante.addActionListener(this::btnPrincipianteActionPerformed);
+        jPanel1.add(btnPrincipiante, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 150, 170, 50));
 
-        btnIntermedio.setBackground(new java.awt.Color(255, 255, 204));
-        btnIntermedio.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        btnIntermedio.setBackground(new java.awt.Color(204, 153, 255));
+        btnIntermedio.setFont(new java.awt.Font("Georgia", 3, 18)); // NOI18N
         btnIntermedio.setText("Intermedio");
+        btnIntermedio.setBorder(null);
         btnIntermedio.addActionListener(this::btnIntermedioActionPerformed);
+        jPanel1.add(btnIntermedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 230, 170, 50));
 
-        btnAvanzado.setBackground(new java.awt.Color(255, 153, 153));
-        btnAvanzado.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        btnAvanzado.setBackground(new java.awt.Color(204, 153, 255));
+        btnAvanzado.setFont(new java.awt.Font("Georgia", 3, 18)); // NOI18N
         btnAvanzado.setText("Avanzado");
+        btnAvanzado.setBorder(null);
         btnAvanzado.addActionListener(this::btnAvanzadoActionPerformed);
+        jPanel1.add(btnAvanzado, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 310, 170, 50));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(125, 125, 125)
-                        .addComponent(btnPrincipiante, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(41, 41, 41)
-                        .addComponent(btnIntermedio, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(37, 37, 37)
-                        .addComponent(btnAvanzado, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(193, 193, 193)
-                        .addComponent(lblSeleccionNivel, javax.swing.GroupLayout.PREFERRED_SIZE, 446, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(138, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addComponent(lblSeleccionNivel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(96, 96, 96)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnPrincipiante, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnIntermedio, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAvanzado, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(192, Short.MAX_VALUE))
-        );
+        jLabel1.setBackground(new java.awt.Color(204, 255, 255));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/2.png"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -4, 880, 520));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -161,6 +143,7 @@ FrmAvanzado juego = new FrmAvanzado();
     private javax.swing.JButton btnAvanzado;
     private javax.swing.JButton btnIntermedio;
     private javax.swing.JButton btnPrincipiante;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblSeleccionNivel;
     // End of variables declaration//GEN-END:variables
