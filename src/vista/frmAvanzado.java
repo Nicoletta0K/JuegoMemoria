@@ -439,22 +439,22 @@ private javax.swing.JButton[][] botones;
     }//GEN-LAST:event_btnReiniciarActionPerformed
 
     private void btnCambiarNivelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiarNivelActionPerformed
-       int respuesta = JOptionPane.showConfirmDialog(this,
-            "Si cambias de nivel perderás la partida actual.\n¿Deseas continuar?",
+       if (juego.juegoTerminado()) {
+        timerCronometro.stop();
+        new FrmSeleccionNivel().setVisible(true);
+        dispose();
+        return;
+    }
+
+    int respuesta = JOptionPane.showConfirmDialog(this,
+            "¿Deseas seguir con la partida actual?",
             "Cambiar nivel",
             JOptionPane.YES_NO_OPTION);
 
-    if (respuesta == JOptionPane.YES_OPTION) {
-
-        if (timerCronometro != null) {
-            timerCronometro.stop();
-        }
-
-        FrmSeleccionNivel seleccion = new FrmSeleccionNivel();
-        seleccion.setLocationRelativeTo(null);
-        seleccion.setVisible(true);
-
-        this.dispose();
+    if (respuesta == JOptionPane.NO_OPTION) {
+        timerCronometro.stop();
+        new FrmSeleccionNivel().setVisible(true);
+        dispose();
     }
     }//GEN-LAST:event_btnCambiarNivelActionPerformed
 

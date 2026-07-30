@@ -248,7 +248,7 @@ public class FrmPrincipiante extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnCambiarNivelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiarNivelActionPerformed
-       if (juego.juegoTerminado()) {
+  if (juego.juegoTerminado()) {
         timerCronometro.stop();
         new FrmSeleccionNivel().setVisible(true);
         dispose();
@@ -256,15 +256,15 @@ public class FrmPrincipiante extends javax.swing.JFrame {
     }
 
     int respuesta = JOptionPane.showConfirmDialog(this,
-            "Si cambias de nivel perderás la partida actual.\n¿Deseas continuar?",
+            "¿Deseas seguir con la partida actual?",
             "Cambiar nivel",
             JOptionPane.YES_NO_OPTION);
 
-    if (respuesta == JOptionPane.YES_OPTION) {
+    if (respuesta == JOptionPane.NO_OPTION) {
         timerCronometro.stop();
         new FrmSeleccionNivel().setVisible(true);
         dispose();
-    }  
+    }
     }//GEN-LAST:event_btnCambiarNivelActionPerformed
 
     /**

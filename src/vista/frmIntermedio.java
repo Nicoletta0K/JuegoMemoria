@@ -318,15 +318,16 @@ public class FrmIntermedio extends javax.swing.JFrame {
     }
 
     int respuesta = JOptionPane.showConfirmDialog(this,
-            "Si cambias de nivel perderás la partida actual.\n¿Deseas continuar?",
+            "¿Deseas seguir con la partida actual?",
             "Cambiar nivel",
             JOptionPane.YES_NO_OPTION);
 
-    if (respuesta == JOptionPane.YES_OPTION) {
+    if (respuesta == JOptionPane.NO_OPTION) {
         timerCronometro.stop();
         new FrmSeleccionNivel().setVisible(true);
         dispose();
-     }
+    }
+      
     }//GEN-LAST:event_btnCambiarNivelActionPerformed
 
     /**
