@@ -14,14 +14,14 @@ import modelo.Nivel;
  *
  * @author norki
  */
-public class frmAvanzado extends javax.swing.JFrame {
+public class FrmAvanzado extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(frmAvanzado.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrmAvanzado.class.getName());
    private controlador.Juego juego;
 private javax.swing.Timer timerCronometro;
 private javax.swing.JButton[][] botones;
 
-    public frmAvanzado() {
+    public FrmAvanzado() {
         initComponents();
         this.setLocationRelativeTo(null);
     juego = new controlador.Juego(modelo.Nivel.AVANZADO);
@@ -480,7 +480,7 @@ private javax.swing.JButton[][] botones;
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new frmAvanzado().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new FrmAvanzado().setVisible(true));
     
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
