@@ -33,14 +33,18 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="lblPuntaje" alignment="0" min="-2" pref="123" max="-2" attributes="0"/>
-                  <Component id="lblNivelActual" min="-2" pref="123" max="-2" attributes="0"/>
-                  <Component id="lblIntentos" min="-2" pref="122" max="-2" attributes="0"/>
-                  <Component id="lblParejas" min="-2" pref="122" max="-2" attributes="0"/>
-                  <Component id="lblTiempo" min="-2" pref="122" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblPuntaje" alignment="0" min="-2" pref="123" max="-2" attributes="0"/>
+                          <Component id="lblNivelActual" min="-2" pref="123" max="-2" attributes="0"/>
+                          <Component id="bntSalir" alignment="1" min="-2" pref="122" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="lblIntentos" alignment="1" min="-2" pref="122" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="lblParejas" alignment="1" min="-2" pref="122" max="-2" attributes="0"/>
+                  <Component id="lblTiempo" alignment="1" min="-2" pref="122" max="-2" attributes="0"/>
                   <Component id="btnReiniciar" alignment="1" min="-2" pref="122" max="-2" attributes="0"/>
                   <Component id="btnCambiarNivel" alignment="1" min="-2" pref="122" max="-2" attributes="0"/>
-                  <Component id="bntSalir" alignment="1" min="-2" pref="122" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="PanelTablero" min="-2" pref="1251" max="-2" attributes="0"/>
@@ -52,27 +56,27 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="PanelTablero" min="-2" pref="500" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
-                      <Component id="lblNivelActual" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="lblPuntaje" min="-2" pref="21" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="lblIntentos" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="lblParejas" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="lblTiempo" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btnReiniciar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btnCambiarNivel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="bntSalir" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblNivelActual" min="-2" pref="54" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="lblPuntaje" min="-2" pref="54" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="lblIntentos" min="-2" pref="54" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="lblParejas" min="-2" pref="54" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="lblTiempo" min="-2" pref="57" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="btnReiniciar" min="-2" pref="54" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="btnCambiarNivel" min="-2" pref="49" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="bntSalir" min="-2" pref="49" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="58" max="32767" attributes="0"/>
+              <EmptySpace pref="39" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
