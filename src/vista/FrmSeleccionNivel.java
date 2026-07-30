@@ -119,14 +119,14 @@ public class FrmSeleccionNivel extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPrincipianteActionPerformed
 
     private void btnAvanzadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvanzadoActionPerformed
-frmAvanzado juego = new frmAvanzado();
+FrmAvanzado juego = new FrmAvanzado();
     juego.setLocationRelativeTo(null);
     juego.setVisible(true);
     this.dispose();
     }//GEN-LAST:event_btnAvanzadoActionPerformed
 
     private void btnIntermedioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIntermedioActionPerformed
-       frmIntermedio juego = new frmIntermedio();
+       FrmIntermedio juego = new FrmIntermedio();
     juego.setLocationRelativeTo(null);
     juego.setVisible(true);
     this.dispose();

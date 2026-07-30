@@ -14,14 +14,14 @@ import modelo.Nivel;
  *
  * @author norki
  */
-public class frmAvanzado extends javax.swing.JFrame {
+public class FrmAvanzado extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(frmAvanzado.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrmAvanzado.class.getName());
    private controlador.Juego juego;
 private javax.swing.Timer timerCronometro;
 private javax.swing.JButton[][] botones;
 
-    public frmAvanzado() {
+    public FrmAvanzado() {
         initComponents();
         this.setLocationRelativeTo(null);
     juego = new controlador.Juego(modelo.Nivel.AVANZADO);
@@ -480,7 +480,7 @@ private javax.swing.JButton[][] botones;
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new frmAvanzado().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new FrmAvanzado().setVisible(true));
     
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -559,9 +559,7 @@ private javax.swing.JButton[][] botones;
     private javax.swing.JLabel lblTiempo;
     // End of variables declaration//GEN-END:variables
 private void inicializarMatrizBotones() {
-
     botones = new javax.swing.JButton[8][8];
-
     botones[0][0] = jButton1;
     botones[0][1] = jButton2;
     botones[0][2] = jButton3;
@@ -570,7 +568,6 @@ private void inicializarMatrizBotones() {
     botones[0][5] = jButton6;
     botones[0][6] = jButton7;
     botones[0][7] = jButton8;
-
     botones[1][0] = jButton9;
     botones[1][1] = jButton10;
     botones[1][2] = jButton11;
@@ -579,7 +576,6 @@ private void inicializarMatrizBotones() {
     botones[1][5] = jButton14;
     botones[1][6] = jButton15;
     botones[1][7] = jButton16;
-
     botones[2][0] = jButton17;
     botones[2][1] = jButton18;
     botones[2][2] = jButton19;
@@ -588,7 +584,6 @@ private void inicializarMatrizBotones() {
     botones[2][5] = jButton22;
     botones[2][6] = jButton23;
     botones[2][7] = jButton24;
-
     botones[3][0] = jButton25;
     botones[3][1] = jButton26;
     botones[3][2] = jButton27;
@@ -638,11 +633,11 @@ private void inicializarMatrizBotones() {
         for (int c = 0; c < 8; c++) {
             final int fila = f;
             final int columna = c;
-            botones[f][c].addActionListener(e -> manejarClickCarta(fila, columna));
+            botones[f][c].addActionListener(e -> SeleccionarCarta(fila, columna));
         }
     }
 }
-private void manejarClickCarta(int fila, int columna) {
+private void SeleccionarCarta(int fila, int columna) {
 
     if (juego.isEsperandoComparacion()) {
         return;
@@ -729,10 +724,14 @@ private void iniciarTimerCronometro() {
 }
 private void mostrarFinDeJuego() {
 
+    String mensaje = "¡Felicidades, completaste el juego!\n\n"
+            + "Puntaje final: " + juego.getJugador().getPuntaje() + "\n"
+            + "Intentos: " + juego.getJugador().getIntentos() + "\n"
+            + "Tiempo: " + juego.getCronometro().obtenerTiempoFormateado();
+
     JOptionPane.showMessageDialog(this,
-            "¡Juego terminado!\nPuntaje final: "
-            + juego.getJugador().getPuntaje(),
-            "Fin del juego",
+            mensaje,
+            "Juego terminado",
             JOptionPane.INFORMATION_MESSAGE);
 
     FrmSeleccionNivel frm = new FrmSeleccionNivel();

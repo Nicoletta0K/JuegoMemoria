@@ -4,6 +4,9 @@
  */
 package vista;
 
+import vista.FrmSeleccionNivel;
+import vista.FrmSeleccionNivel;
+
 /**
  *
  * @author Stef

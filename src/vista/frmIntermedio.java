@@ -13,24 +13,21 @@ import modelo.Nivel;
  *
  * @author norki
  */
-public class frmIntermedio extends javax.swing.JFrame {
+public class FrmIntermedio extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(frmIntermedio.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrmIntermedio.class.getName());
 
   
     private controlador.Juego juego;
     private javax.swing.Timer timerCronometro;
     private javax.swing.JButton[][] botones;
 
-    public frmIntermedio() {
+    public FrmIntermedio() {
         initComponents();
         this.setLocationRelativeTo(null);
-
-        
         juego = new controlador.Juego(modelo.Nivel.INTERMEDIO);
         juego.iniciarPartida();
-
-        inicializarMatrizBotones();
+         asignarBotones();
         actualizarTablero();
         actualizarInformacionJuego();
          iniciarTimerCronometro();
@@ -313,23 +310,23 @@ public class frmIntermedio extends javax.swing.JFrame {
     }//GEN-LAST:event_btnReiniciarActionPerformed
 
     private void btnCambiarNivelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiarNivelActionPerformed
-         int respuesta = JOptionPane.showConfirmDialog(this,
+       if (juego.juegoTerminado()) {
+        timerCronometro.stop();
+        new FrmSeleccionNivel().setVisible(true);
+        dispose();
+        return;
+    }
+
+    int respuesta = JOptionPane.showConfirmDialog(this,
             "Si cambias de nivel perderás la partida actual.\n¿Deseas continuar?",
             "Cambiar nivel",
             JOptionPane.YES_NO_OPTION);
 
     if (respuesta == JOptionPane.YES_OPTION) {
-
-        if (timerCronometro != null) {
-            timerCronometro.stop();
-        }
-
-        FrmSeleccionNivel seleccion = new FrmSeleccionNivel();
-        seleccion.setLocationRelativeTo(null);
-        seleccion.setVisible(true);
-
-        this.dispose();
-    }
+        timerCronometro.stop();
+        new FrmSeleccionNivel().setVisible(true);
+        dispose();
+     }
     }//GEN-LAST:event_btnCambiarNivelActionPerformed
 
     /**
@@ -354,7 +351,7 @@ public class frmIntermedio extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new frmIntermedio().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new FrmIntermedio().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -400,7 +397,7 @@ public class frmIntermedio extends javax.swing.JFrame {
     private javax.swing.JLabel lblPuntaje;
     private javax.swing.JLabel lblTiempo;
     // End of variables declaration//GEN-END:variables
-private void inicializarMatrizBotones() {
+private void asignarBotones() {
        botones = new javax.swing.JButton[4][8];
         botones[0][0] = jButton1;
         botones[0][1] = jButton2;
@@ -442,12 +439,12 @@ private void inicializarMatrizBotones() {
             for (int c = 0; c < 8; c++) {
                 final int fila = f;
                 final int columna = c;
-                botones[f][c].addActionListener(e -> manejarClickCarta(fila, columna));
+                botones[f][c].addActionListener(e -> SeleccionarCarta(fila, columna));
             }
         }
     }
 
-   private void manejarClickCarta(int fila, int columna) {
+   private void SeleccionarCarta(int fila, int columna) {
     if (juego.isEsperandoComparacion()) {
         return; 
     }
@@ -525,10 +522,21 @@ private void actualizarTablero() {
     timerCronometro.start();
 }
    private void mostrarFinDeJuego() {
+
+    String mensaje = "¡Felicidades, completaste el juego!\n\n"
+            + "Puntaje final: " + juego.getJugador().getPuntaje() + "\n"
+            + "Intentos: " + juego.getJugador().getIntentos() + "\n"
+            + "Tiempo: " + juego.getCronometro().obtenerTiempoFormateado();
+
     JOptionPane.showMessageDialog(this,
-        "¡Juego terminado!\nPuntaje final: " 
-        + juego.getJugador().getPuntaje(),
-        "Fin del juego",
-        JOptionPane.INFORMATION_MESSAGE);
-   }
+            mensaje,
+            "Juego terminado",
+            JOptionPane.INFORMATION_MESSAGE);
+
+    FrmSeleccionNivel frm = new FrmSeleccionNivel();
+    frm.setLocationRelativeTo(null);
+    frm.setVisible(true);
+
+    dispose();
+}
 }

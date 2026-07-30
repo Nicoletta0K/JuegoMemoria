@@ -27,13 +27,14 @@ public class FrmPrincipiante extends javax.swing.JFrame {
     private Timer timerCronometro;
     public FrmPrincipiante(Nivel nivel) {
     initComponents();
+    this.setLocationRelativeTo(null);
     this.nivelActual = nivel;
     juego = new Juego(nivel);
     juego.iniciarPartida();
-    inicializarMatrizBotones();
+    asignarBotones();
     lblNivelActual.setText("Nivel: " + nivel.name());
     actualizarTablero();
-    actualizarEtiquetas();
+    actualizarInformacionJuego();
     iniciarTimerCronometro();
 }
 
@@ -233,7 +234,7 @@ public class FrmPrincipiante extends javax.swing.JFrame {
     private void btnReiniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReiniciarActionPerformed
        juego.reiniciarPartida();
     actualizarTablero(); 
-    actualizarEtiquetas();
+    actualizarInformacionJuego();
     iniciarTimerCronometro();
     }//GEN-LAST:event_btnReiniciarActionPerformed
 
@@ -247,23 +248,23 @@ public class FrmPrincipiante extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnCambiarNivelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiarNivelActionPerformed
-       int respuesta = JOptionPane.showConfirmDialog(this,
+       if (juego.juegoTerminado()) {
+        timerCronometro.stop();
+        new FrmSeleccionNivel().setVisible(true);
+        dispose();
+        return;
+    }
+
+    int respuesta = JOptionPane.showConfirmDialog(this,
             "Si cambias de nivel perderás la partida actual.\n¿Deseas continuar?",
             "Cambiar nivel",
             JOptionPane.YES_NO_OPTION);
 
     if (respuesta == JOptionPane.YES_OPTION) {
-
-        if (timerCronometro != null) {
-            timerCronometro.stop();
-        }
-
-        FrmSeleccionNivel seleccion = new FrmSeleccionNivel();
-        seleccion.setLocationRelativeTo(null);
-        seleccion.setVisible(true);
-
-        this.dispose();
-    }
+        timerCronometro.stop();
+        new FrmSeleccionNivel().setVisible(true);
+        dispose();
+    }  
     }//GEN-LAST:event_btnCambiarNivelActionPerformed
 
     /**
@@ -319,8 +320,59 @@ public class FrmPrincipiante extends javax.swing.JFrame {
     private javax.swing.JLabel lblTiempo;
     // End of variables declaration//GEN-END:variables
 
+    private void asignarBotones() {
+    botones = new JButton[4][4];
+    botones[0][0] = jButton1;
+    botones[0][1] = jButton2;
+    botones[0][2] = jButton3;
+    botones[0][3] = jButton4;
+    botones[1][0] = jButton5;
+    botones[1][1] = jButton6;
+    botones[1][2] = jButton7;
+    botones[1][3] = jButton8;
+    botones[2][0] = jButton9;
+    botones[2][1] = jButton10;
+    botones[2][2] = jButton11;
+    botones[2][3] = jButton12;
+    botones[3][0] = jButton13;
+    botones[3][1] = jButton14;
+    botones[3][2] = jButton15;
+    botones[3][3] = jButton16;
+   for (int f = 0; f < 4; f++) {
+        for (int c = 0; c < 4; c++) {
+            final int fila = f;
+            final int columna = c;
 
+            botones[f][c].addActionListener(e -> SeleccionarCarta(fila, columna));
+        }
+    }
+}
+    private void SeleccionarCarta(int fila, int columna) {
+    System.out.println("Click en fila: " + fila + " columna: " + columna);
+    if (juego.isEsperandoComparacion()) {
+        return; 
+    }
 
+    juego.seleccionarCarta(fila, columna);
+    actualizarTablero();
+    if (juego.isEsperandoComparacion()) {
+        Timer timerEspera = new Timer(2000, e -> {
+            juego.limpiarSeleccion(); 
+            actualizarTablero();
+            actualizarInformacionJuego();
+        });
+        timerEspera.setRepeats(false); 
+        timerEspera.start();
+    } else {
+        actualizarInformacionJuego();
+    }
+}
+    private void actualizarInformacionJuego() {
+    lblPuntaje.setText("Puntaje: " + juego.getJugador().getPuntaje());
+    lblIntentos.setText("Intentos: " + juego.getJugador().getIntentos());
+    lblParejas.setText("Parejas: " + juego.getJugador().getParejasEncontradas());
+    lblTiempo.setText("Tiempo: " + juego.getCronometro().obtenerTiempoFormateado());
+}
 
 private void actualizarTablero() {
     int filas = juego.getTablero().getFilas();
@@ -348,12 +400,7 @@ private void actualizarTablero() {
     }
 }
    
-private void actualizarEtiquetas() {
-    lblPuntaje.setText("Puntaje: " + juego.getJugador().getPuntaje());
-    lblIntentos.setText("Intentos: " + juego.getJugador().getIntentos());
-    lblParejas.setText("Parejas: " + juego.getJugador().getParejasEncontradas());
-    lblTiempo.setText("Tiempo: " + juego.getCronometro().obtenerTiempoFormateado());
-}
+
 
 private void iniciarTimerCronometro() {
     if (timerCronometro != null) {
@@ -373,61 +420,22 @@ private void iniciarTimerCronometro() {
 }
 
 private void mostrarFinDeJuego() {
+
     String mensaje = "¡Felicidades, completaste el juego!\n\n"
             + "Puntaje final: " + juego.getJugador().getPuntaje() + "\n"
             + "Intentos: " + juego.getJugador().getIntentos() + "\n"
             + "Tiempo: " + juego.getCronometro().obtenerTiempoFormateado();
 
-    JOptionPane.showMessageDialog(this, mensaje, "Juego terminado",
+    JOptionPane.showMessageDialog(this,
+            mensaje,
+            "Juego terminado",
             JOptionPane.INFORMATION_MESSAGE);
-}
-private void inicializarMatrizBotones() {
-    botones = new JButton[4][4];
-    botones[0][0] = jButton1;
-    botones[0][1] = jButton2;
-    botones[0][2] = jButton3;
-    botones[0][3] = jButton4;
-    botones[1][0] = jButton5;
-    botones[1][1] = jButton6;
-    botones[1][2] = jButton7;
-    botones[1][3] = jButton8;
-    botones[2][0] = jButton9;
-    botones[2][1] = jButton10;
-    botones[2][2] = jButton11;
-    botones[2][3] = jButton12;
-    botones[3][0] = jButton13;
-    botones[3][1] = jButton14;
-    botones[3][2] = jButton15;
-    botones[3][3] = jButton16;
-   for (int f = 0; f < 4; f++) {
-        for (int c = 0; c < 4; c++) {
-            final int fila = f;
-            final int columna = c;
 
-            botones[f][c].addActionListener(e -> manejarClickCarta(fila, columna));
-        }
-    }
-}
+    FrmSeleccionNivel frm = new FrmSeleccionNivel();
+    frm.setLocationRelativeTo(null);
+    frm.setVisible(true);
 
-private void manejarClickCarta(int fila, int columna) {
-    System.out.println("Click en fila: " + fila + " columna: " + columna);
-    if (juego.isEsperandoComparacion()) {
-        return; 
-    }
-
-    juego.seleccionarCarta(fila, columna);
-    actualizarTablero();
-    if (juego.isEsperandoComparacion()) {
-        Timer timerEspera = new Timer(2000, e -> {
-            juego.limpiarSeleccion(); 
-            actualizarTablero();
-            actualizarEtiquetas();
-        });
-        timerEspera.setRepeats(false); 
-        timerEspera.start();
-    } else {
-        actualizarEtiquetas();
-    }
+    dispose();
 }
+} 
 
-}
