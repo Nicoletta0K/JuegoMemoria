@@ -50,7 +50,7 @@ public class FrmBienvenida extends javax.swing.JFrame {
         getContentPane().add(btnJugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 240, -1, 43));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/4.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -4, 990, 570));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 990, 570));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
