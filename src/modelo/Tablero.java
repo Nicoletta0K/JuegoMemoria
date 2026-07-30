@@ -32,12 +32,12 @@ public class Tablero {
         int totalCartas = filas * columnas;
         int totalParejas = totalCartas / 2;
         String[] imagenesDisponibles = {
-            "img1", "img2", "img3", "img4", "img5", "img6",
-            "img7", "img8", "img9", "img10", "img11", "img12",
-            "img13", "img14", "img15", "img16", "img17", "img18",
-            "img19", "img20", "img21", "img22", "img23", "img24",
-            "img25", "img26", "img27", "img28", "img29", "img30",
-            "img31", "img32"
+           "Img1.png", "Img2.png", "Img3.png", "Img4.png", "Img5.png", "Img6.png",
+            "Img7.png", "Img8.png", "Img9.png", "Img10.png", "Img11.png", "Img12.png",
+            "Img13.png", "Img14.png", "Img15.png", "Img16.png", "Img17.png", "Img18.png",
+            "Img19.png", "Img20.png", "Img21.png", "Img22.png", "Img23.png", "Img24.png",
+            "Img25.png", "Img26.png", "Img27.png", "Img28.png", "Img29.png", "Img30.png",
+            "Img31.png", "Img32.png"
         };
         
         String[] valores = new String[totalCartas];
