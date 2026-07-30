@@ -14,9 +14,9 @@ import javax.swing.ImageIcon;
 /**
  
  */
-public class FrmPrincipiante extends javax.swing.JFrame {
+public class FrmIntermedio extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrmPrincipiante.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrmIntermedio.class.getName());
 
     /**
      * Creates new form FrmPrincipiante
@@ -25,7 +25,7 @@ public class FrmPrincipiante extends javax.swing.JFrame {
     private Juego juego;
     private JButton[][] botones;
     private Timer timerCronometro;
-    public FrmPrincipiante(Nivel nivel) {
+    public FrmIntermedio(Nivel nivel) {
     this.getContentPane().setBackground(new java.awt.Color(68, 28, 28));
     initComponents();
     this.setLocationRelativeTo(null);
@@ -72,6 +72,22 @@ public class FrmPrincipiante extends javax.swing.JFrame {
         jButton14 = new javax.swing.JButton();
         jButton15 = new javax.swing.JButton();
         jButton16 = new javax.swing.JButton();
+        jButton17 = new javax.swing.JButton();
+        jButton18 = new javax.swing.JButton();
+        jButton19 = new javax.swing.JButton();
+        jButton20 = new javax.swing.JButton();
+        jButton21 = new javax.swing.JButton();
+        jButton22 = new javax.swing.JButton();
+        jButton23 = new javax.swing.JButton();
+        jButton24 = new javax.swing.JButton();
+        jButton25 = new javax.swing.JButton();
+        jButton26 = new javax.swing.JButton();
+        jButton27 = new javax.swing.JButton();
+        jButton28 = new javax.swing.JButton();
+        jButton29 = new javax.swing.JButton();
+        jButton30 = new javax.swing.JButton();
+        jButton31 = new javax.swing.JButton();
+        jButton32 = new javax.swing.JButton();
         bntSalir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -138,7 +154,7 @@ public class FrmPrincipiante extends javax.swing.JFrame {
         PanelTablero.setBackground(new java.awt.Color(43, 0, 0));
         PanelTablero.setToolTipText("");
         PanelTablero.setPreferredSize(new java.awt.Dimension(360, 320));
-        PanelTablero.setLayout(new java.awt.GridLayout(4, 4, 4, 4));
+        PanelTablero.setLayout(new java.awt.GridLayout(4, 8, 4, 4));
 
         jButton1.setBackground(new java.awt.Color(124, 28, 28));
         jButton1.addActionListener(this::jButton1ActionPerformed);
@@ -195,6 +211,61 @@ public class FrmPrincipiante extends javax.swing.JFrame {
         jButton16.setBackground(new java.awt.Color(124, 28, 28));
         PanelTablero.add(jButton16);
 
+        jButton17.setBackground(new java.awt.Color(124, 28, 28));
+        jButton17.addActionListener(this::jButton17ActionPerformed);
+        PanelTablero.add(jButton17);
+
+        jButton18.setBackground(new java.awt.Color(124, 28, 28));
+        PanelTablero.add(jButton18);
+
+        jButton19.setBackground(new java.awt.Color(124, 28, 28));
+        PanelTablero.add(jButton19);
+
+        jButton20.setBackground(new java.awt.Color(124, 28, 28));
+        jButton20.addActionListener(this::jButton20ActionPerformed);
+        PanelTablero.add(jButton20);
+
+        jButton21.setBackground(new java.awt.Color(124, 28, 28));
+        jButton21.addActionListener(this::jButton21ActionPerformed);
+        PanelTablero.add(jButton21);
+
+        jButton22.setBackground(new java.awt.Color(124, 28, 28));
+        PanelTablero.add(jButton22);
+
+        jButton23.setBackground(new java.awt.Color(124, 28, 28));
+        PanelTablero.add(jButton23);
+
+        jButton24.setBackground(new java.awt.Color(124, 28, 28));
+        jButton24.addActionListener(this::jButton24ActionPerformed);
+        PanelTablero.add(jButton24);
+
+        jButton25.setBackground(new java.awt.Color(124, 28, 28));
+        jButton25.addActionListener(this::jButton25ActionPerformed);
+        PanelTablero.add(jButton25);
+
+        jButton26.setBackground(new java.awt.Color(124, 28, 28));
+        PanelTablero.add(jButton26);
+
+        jButton27.setBackground(new java.awt.Color(124, 28, 28));
+        jButton27.addActionListener(this::jButton27ActionPerformed);
+        PanelTablero.add(jButton27);
+
+        jButton28.setBackground(new java.awt.Color(124, 28, 28));
+        PanelTablero.add(jButton28);
+
+        jButton29.setBackground(new java.awt.Color(124, 28, 28));
+        PanelTablero.add(jButton29);
+
+        jButton30.setBackground(new java.awt.Color(124, 28, 28));
+        jButton30.addActionListener(this::jButton30ActionPerformed);
+        PanelTablero.add(jButton30);
+
+        jButton31.setBackground(new java.awt.Color(124, 28, 28));
+        PanelTablero.add(jButton31);
+
+        jButton32.setBackground(new java.awt.Color(124, 28, 28));
+        PanelTablero.add(jButton32);
+
         bntSalir.setBackground(new java.awt.Color(124, 28, 28));
         bntSalir.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         bntSalir.setText("Salir");
@@ -220,8 +291,8 @@ public class FrmPrincipiante extends javax.swing.JFrame {
                     .addComponent(btnCambiarNivel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bntSalir, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(PanelTablero, javax.swing.GroupLayout.PREFERRED_SIZE, 562, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addComponent(PanelTablero, javax.swing.GroupLayout.DEFAULT_SIZE, 1089, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -245,7 +316,7 @@ public class FrmPrincipiante extends javax.swing.JFrame {
                         .addComponent(btnCambiarNivel)
                         .addGap(18, 18, 18)
                         .addComponent(bntSalir)))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -316,6 +387,34 @@ public class FrmPrincipiante extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_bntSalirActionPerformed
 
+    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton17ActionPerformed
+
+    private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton20ActionPerformed
+
+    private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton21ActionPerformed
+
+    private void jButton24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton24ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton24ActionPerformed
+
+    private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton25ActionPerformed
+
+    private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton27ActionPerformed
+
+    private void jButton30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton30ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton30ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -338,7 +437,7 @@ public class FrmPrincipiante extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new FrmPrincipiante(Nivel.PRINCIPIANTE).setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new FrmIntermedio(Nivel.PRINCIPIANTE).setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -354,8 +453,24 @@ public class FrmPrincipiante extends javax.swing.JFrame {
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton16;
+    private javax.swing.JButton jButton17;
+    private javax.swing.JButton jButton18;
+    private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton20;
+    private javax.swing.JButton jButton21;
+    private javax.swing.JButton jButton22;
+    private javax.swing.JButton jButton23;
+    private javax.swing.JButton jButton24;
+    private javax.swing.JButton jButton25;
+    private javax.swing.JButton jButton26;
+    private javax.swing.JButton jButton27;
+    private javax.swing.JButton jButton28;
+    private javax.swing.JButton jButton29;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton30;
+    private javax.swing.JButton jButton31;
+    private javax.swing.JButton jButton32;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
@@ -370,23 +485,42 @@ public class FrmPrincipiante extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void asignarBotones() {
-    botones = new JButton[4][4];
-    botones[0][0] = jButton1;
-    botones[0][1] = jButton2;
-    botones[0][2] = jButton3;
-    botones[0][3] = jButton4;
-    botones[1][0] = jButton5;
-    botones[1][1] = jButton6;
-    botones[1][2] = jButton7;
-    botones[1][3] = jButton8;
-    botones[2][0] = jButton9;
-    botones[2][1] = jButton10;
-    botones[2][2] = jButton11;
-    botones[2][3] = jButton12;
-    botones[3][0] = jButton13;
-    botones[3][1] = jButton14;
-    botones[3][2] = jButton15;
-    botones[3][3] = jButton16;
+ botones = new javax.swing.JButton[4][8];
+        botones[0][0] = jButton1;
+        botones[0][1] = jButton2;
+        botones[0][2] = jButton3;
+        botones[0][3] = jButton4;
+        botones[0][4] = jButton5;
+        botones[0][5] = jButton6;
+        botones[0][6] = jButton7;
+        botones[0][7] = jButton8;
+
+        botones[1][0] = jButton9;
+        botones[1][1] = jButton10;
+        botones[1][2] = jButton11;
+        botones[1][3] = jButton12;
+        botones[1][4] = jButton13;
+        botones[1][5] = jButton14;
+        botones[1][6] = jButton15;
+        botones[1][7] = jButton16;
+
+        botones[2][0] = jButton17;
+        botones[2][1] = jButton18;
+        botones[2][2] = jButton19;
+        botones[2][3] = jButton20;
+        botones[2][4] = jButton21;
+        botones[2][5] = jButton22;
+        botones[2][6] = jButton23;
+        botones[2][7] = jButton24;
+
+        botones[3][0] = jButton25;
+        botones[3][1] = jButton26;
+        botones[3][2] = jButton27;
+        botones[3][3] = jButton28;
+        botones[3][4] = jButton29;
+        botones[3][5] = jButton30;
+        botones[3][6] = jButton31;
+        botones[3][7] = jButton32;
    for (int f = 0; f < 4; f++) {
         for (int c = 0; c < 4; c++) {
             final int fila = f;

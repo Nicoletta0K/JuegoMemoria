@@ -14,9 +14,9 @@ import javax.swing.ImageIcon;
 /**
  
  */
-public class FrmPrincipiante extends javax.swing.JFrame {
+public class FrmAvanzado extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrmPrincipiante.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrmAvanzado.class.getName());
 
     /**
      * Creates new form FrmPrincipiante
@@ -25,7 +25,7 @@ public class FrmPrincipiante extends javax.swing.JFrame {
     private Juego juego;
     private JButton[][] botones;
     private Timer timerCronometro;
-    public FrmPrincipiante(Nivel nivel) {
+    public FrmAvanzado(Nivel nivel) {
     this.getContentPane().setBackground(new java.awt.Color(68, 28, 28));
     initComponents();
     this.setLocationRelativeTo(null);
@@ -228,7 +228,7 @@ public class FrmPrincipiante extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(PanelTablero, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PanelTablero, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblNivelActual)
                         .addGap(18, 18, 18)
@@ -245,7 +245,7 @@ public class FrmPrincipiante extends javax.swing.JFrame {
                         .addComponent(btnCambiarNivel)
                         .addGap(18, 18, 18)
                         .addComponent(bntSalir)))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         pack();
@@ -338,7 +338,7 @@ public class FrmPrincipiante extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new FrmPrincipiante(Nivel.PRINCIPIANTE).setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new FrmAvanzado(Nivel.PRINCIPIANTE).setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
