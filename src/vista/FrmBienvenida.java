@@ -38,14 +38,18 @@ public class FrmBienvenida extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblTitulo.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lblTitulo.setFont(new java.awt.Font("Georgia", 3, 24)); // NOI18N
         lblTitulo.setText("BIENVENIDOS AL JUEGO DE MEMORIA");
-        getContentPane().add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 429, 44));
+        getContentPane().add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 520, 44));
 
-        btnJugar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnJugar.setText("Dale click aquí para jugar");
+        btnJugar.setBackground(new java.awt.Color(153, 204, 255));
+        btnJugar.setFont(new java.awt.Font("Georgia", 3, 18)); // NOI18N
+        btnJugar.setForeground(new java.awt.Color(0, 0, 0));
+        btnJugar.setText("Dale click para jugar");
         btnJugar.addActionListener(this::btnJugarActionPerformed);
-        getContentPane().add(btnJugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 172, -1, 43));
+        getContentPane().add(btnJugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 160, -1, 43));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/fondo.jpeg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -4, 730, 390));
 
         pack();
