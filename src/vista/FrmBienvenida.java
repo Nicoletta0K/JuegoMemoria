@@ -46,8 +46,6 @@ public class FrmBienvenida extends javax.swing.JFrame {
         btnJugar.setText("Dale click aquí para jugar");
         btnJugar.addActionListener(this::btnJugarActionPerformed);
         getContentPane().add(btnJugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 172, -1, 43));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Fondos/WhatsApp Image 2026-07-29 at 7.37.33 PM.jpeg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -4, 730, 390));
 
         pack();
